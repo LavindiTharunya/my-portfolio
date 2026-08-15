@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initCopyActions();
   initFormHandler();
+  initCvModal();
 });
 
 /* --------------------------------------------------------------------------
@@ -300,17 +301,69 @@ function initFormHandler() {
   const form = document.getElementById('contactForm');
   if (!form) return;
 
+  const nameInput = document.getElementById('formName');
+  const emailInput = document.getElementById('formEmail');
+  const messageInput = document.getElementById('formMessage');
+  const whatsappBtn = document.getElementById('sendWhatsAppBtn');
+
+  // Direct Submission via Email Client (mailto)
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const nameInput = document.getElementById('formName');
-    const emailInput = document.getElementById('formEmail');
-    
-    if (window.showToastNotification) {
-      window.showToastNotification(`Thank you ${nameInput.value || 'there'}! Message sent successfully.`);
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
+
+    if (!name || !email || !message) {
+      if (window.showToastNotification) {
+        window.showToastNotification('⚠️ Please fill in all fields before sending.');
+      }
+      return;
     }
 
-    form.reset();
+    const recipient = 'mpltharunya22@gmail.com';
+    const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+    const body = encodeURIComponent(
+      `Hello Lawindi,\n\nYou have received a new message from your portfolio website:\n\n` +
+      `Name: ${name}\n` +
+      `Email: ${email}\n\n` +
+      `Message:\n${message}\n\n` +
+      `--\nSent from Lawindi Tharunya's Portfolio Contact Form`
+    );
+
+    const mailtoUrl = `mailto:${recipient}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoUrl;
+
+    if (window.showToastNotification) {
+      window.showToastNotification(`✉️ Opening email client to send message to Lawindi!`);
+    }
   });
+
+  // Direct Submission via WhatsApp Chat
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener('click', () => {
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const message = messageInput.value.trim();
+
+      const phone = '94715435636';
+      let text = `Hi Lawindi,`;
+      if (name) text += ` I'm ${name}`;
+      if (email) text += ` (${email})`;
+      text += `.\n\n`;
+      if (message) {
+        text += `Message: ${message}`;
+      } else {
+        text += `I visited your portfolio and would like to connect!`;
+      }
+
+      const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+      if (window.showToastNotification) {
+        window.showToastNotification(`💬 Opening WhatsApp chat with Lawindi...`);
+      }
+    });
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -392,3 +445,148 @@ function initThemeToggle() {
     }
   }
 }
+
+/* --------------------------------------------------------------------------
+   8. MODERN ATS CV MODAL CONTROLLER & ATS PLAINTEXT EXPORT
+   -------------------------------------------------------------------------- */
+function initCvModal() {
+  const modal = document.getElementById('cvModal');
+  if (!modal) return;
+
+  const openButtons = document.querySelectorAll('.btn-open-cv, [data-open-cv]');
+  const closeButton = document.getElementById('closeCvModal');
+  const copyPlaintextBtn = document.getElementById('copyCvPlaintextBtn');
+
+  const atsPlainText = `LAWINDI THARUNYA
+Data Science & Analytics | Machine Learning & Statistical Modeling
+Colombo, Sri Lanka | WhatsApp: Direct Message | Email: mpltharunya22@gmail.com
+LinkedIn: linkedin.com/in/lawindi-tharunya | GitHub: github.com/LavindiTharunya
+
+============================================================
+PROFESSIONAL SUMMARY
+============================================================
+Proactive and analytical undergraduate reading for a BSc (Hons) in Management & Information Technology at the University of Kelaniya, building practical foundations in Data Science, Analytics, and Enterprise Data Systems. Gaining hands-on experience in Python (Pandas, NumPy, Matplotlib), SQL, exploratory data analysis (EDA), and relational database modeling, alongside exposure to machine learning fundamentals. Supported by certified banking operational experience at Bank of Ceylon with structured transaction records, proven leadership as Chief Coordinator for island-wide tech hackathons (hackX Jr. 9.0), and award-winning product ideation (InCo 2026 2nd Runner-up). Seeking a Data Science / Data Analyst Internship to apply analytical problem-solving, learn industry workflows, and contribute to data-backed decisions.
+
+============================================================
+EDUCATION
+============================================================
+BSc (Hons) in Management & Information Technology | 2023 - Present
+University of Kelaniya, Sri Lanka
+- Specialization Focus: Data Science, Machine Learning, Statistical Analysis, Database Management Systems (DBMS), Operational Research, and Software Systems Architecture.
+
+Diploma in English | 2023
+ICBT Campus, Sri Lanka
+- Coursework: Executive Business Communication, Technical Documentation, Professional Presentations.
+
+============================================================
+TECHNICAL & ANALYTICAL SKILLS
+============================================================
+- Data Science & Analytics: Exploratory Data Analysis (EDA), Data Preprocessing, Statistical Analysis Basics, Data Visualization (Matplotlib, Seaborn), Machine Learning Fundamentals
+- Programming: Python (Pandas, NumPy, Matplotlib), SQL, Java, C++, JavaScript (ES6+), HTML5/CSS3
+- Databases & Tools: MySQL, PostgreSQL, JavaDB, Relational Schema Design (ERD), Git, GitHub, Jupyter Notebook, VS Code, Google Colab
+- Business & Analytical: Data Storytelling, Quantitative Analysis, Requirement Analysis, Operational Research, Process Improvement
+- Languages: English (Professional Working), Sinhala (Native), Tamil (Moderate)
+
+============================================================
+KEY PROJECTS & DATA INNOVATION
+============================================================
+Hydro Habit - Smart Hydration for Family Care (InCo 2026) | 2026
+Role: Concept Lead & Data/GTM Strategist | Award: 2nd Runner-up (Marketing Category)
+- Architected user behavioral data tracking flow and health metric benchmarks for an IoT smart hydration monitoring product.
+- Conducted quantitative market research, user segmentation analysis, and financial feasibility modeling for InCo 2026.
+
+PharmaLink - Prescription Management & Database System | 2024 - 2025
+Role: Database Architecture & Backend Logic | Stack: Java, JavaDB, SQL
+- Engineered a desktop prescription management application for pharmacies to track inventory flow and patient records.
+- Designed normalized relational database schema (ERD), implemented SQL queries, and integrated Java CRUD operations.
+
+Connect 4 Algorithmic State Engine | 2024
+Role: Algorithms & UI Architecture | Stack: C++
+- Developed an interactive Connect 4 application in C++ utilizing 2D matrix traversal algorithms for dynamic win detection.
+- Implemented structured game loop state management and an interactive player configuration dashboard.
+
+============================================================
+PROFESSIONAL EXPERIENCE
+============================================================
+Bank of Ceylon (BOC) | Trainee (Certified)
+March 2024 - January 2025 | Sri Lanka
+- Managed day-to-day operational banking workflows and reconciled daily transaction datasets in compliance with strict accuracy standards.
+- Conducted financial documentation verification, customer profile audits, and structured data handling across core banking database platforms.
+- Assisted 50+ clients daily with account documentation, query resolution, and operational guidance.
+
+============================================================
+CERTIFICATIONS & AWARDS
+============================================================
+- 2nd Runner-up (Marketing Category) - InCo 2026 Product Competition (2026)
+- Python Essentials for Data Science - Cisco Networking Academy (In Progress)
+- Introduction to Data Science - Cisco Networking Academy
+- Introduction to Programming & Data Analysis - Kaggle
+- Data Fundamentals - IBM
+- Workplace Skills Certificate - MAS Holdings x University of Kelaniya
+
+============================================================
+LEADERSHIP & EXTRACURRICULAR INVOLVEMENT
+============================================================
+- Chief Coordinator - hackX Jr. 9.0 (2026): Led central organizing committee for premier island-wide inter-school hackathon.
+- Member - AIESEC in University of Kelaniya (2023 - Present)
+- Volunteer - IEEE Student Branch, University of Kelaniya
+- Member - Industrial Management Science Students' Association (IMSSA)`;
+
+  function openModal() {
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  openButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  if (closeButton) {
+    closeButton.addEventListener('click', closeModal);
+  }
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  if (copyPlaintextBtn) {
+    copyPlaintextBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(atsPlainText).then(() => {
+        if (window.showToastNotification) {
+          window.showToastNotification('📋 Plaintext ATS Resume copied to clipboard!');
+        } else {
+          alert('Plaintext ATS Resume copied to clipboard!');
+        }
+      }).catch(() => {
+        const tempTextArea = document.createElement('textarea');
+        tempTextArea.value = atsPlainText;
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempTextArea);
+        if (window.showToastNotification) {
+          window.showToastNotification('📋 Plaintext ATS Resume copied to clipboard!');
+        }
+      });
+    });
+  }
+}
+

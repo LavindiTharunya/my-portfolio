@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lawindi Tharunya — Data Science & Analytics Resume</title>
+  <meta name="description" content="Official Resume of Lawindi Tharunya — BSc (Hons) Management & IT Undergraduate at University of Kelaniya, focusing on Data Science, Python, SQL, and Analytics.">
+  <meta name="author" content="Lawindi Tharunya">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       PROFESSIONAL EXECUTIVE DATA SCIENCE RESUME STYLESHEET
+       Engineered for ATS parsing precision & executive readability:
+       - Linear single-column parser hierarchy
+       - Standard semantic tags (H1, H2, H3, P, UL, LI)
+       - High contrast typography & optimal line height
+       - Clean A4 / Letter print styles
+       ========================================================================== */
+
+    :root {
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --bg-page: #0b111e;
+      --bg-resume: #ffffff;
+      --text-dark: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent-navy: #0f2b48;
+      --accent-teal: #0d9488;
+      --border-light: #e2e8f0;
+      --border-dark: #cbd5e1;
+      --shadow-doc: 0 20px 45px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-page);
+      color: var(--text-dark);
+      line-height: 1.45;
+      font-size: 9.8pt;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 15px 60px 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Floating Action Bar */
+    .top-action-bar {
+      position: sticky;
+      top: 15px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      max-width: 850px;
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 10px 18px;
+      background: rgba(17, 26, 46, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 50px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .action-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #f8fafc;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .action-bar-badge {
+      font-size: 0.72rem;
+      background: rgba(13, 148, 136, 0.25);
+      color: #2dd4bf;
+      padding: 2px 8px;
+      border-radius: 12px;
+      border: 1px solid rgba(45, 212, 191, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .action-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 15px;
+      border-radius: 25px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-primary-action {
+      background: linear-gradient(135deg, #0d9488, #06b6d4);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(6, 182, 212, 0.35);
+    }
+
+    .btn-primary-action:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(6, 182, 212, 0.5);
+    }
+
+    .btn-secondary-action {
+      background: rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-secondary-action:hover {
+      background: rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+    }
+
+    /* Executive Resume Document */
+    .resume-document {
+      width: 100%;
+      max-width: 850px;
+      background: var(--bg-resume);
+      padding: 44px 50px;
+      border-radius: 6px;
+      box-shadow: var(--shadow-doc);
+      color: var(--text-dark);
+    }
+
+    /* Resume Header */
+    .resume-header {
+      border-bottom: 2px solid var(--accent-navy);
+      padding-bottom: 12px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .candidate-name {
+      font-size: 21pt;
+      font-weight: 700;
+      color: var(--accent-navy);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .candidate-title {
+      font-size: 10.5pt;
+      font-weight: 600;
+      color: var(--accent-teal);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 6px 14px;
+      font-size: 8.8pt;
+      color: var(--text-secondary);
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .contact-item a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent-teal);
+      text-decoration: underline;
+    }
+
+    .contact-separator {
+      color: #94a3b8;
+    }
+
+    /* Section Styles */
+    .resume-section {
+      margin-bottom: 13px;
+      page-break-inside: avoid;
+    }
+
+    .section-title {
+      font-size: 10.2pt;
+      font-weight: 700;
+      color: var(--accent-navy);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1.5px solid var(--border-dark);
+      padding-bottom: 2px;
+      margin-bottom: 7px;
+    }
+
+    /* Summary */
+    .summary-text {
+      font-size: 9.3pt;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      text-align: justify;
+    }
+
+    /* Entry Items */
+    .resume-entry {
+      margin-bottom: 9px;
+      page-break-inside: avoid;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .entry-title {
+      font-size: 9.8pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .entry-title .role-tag {
+      font-weight: 500;
+      color: #475569;
+    }
+
+    .entry-date {
+      font-size: 8.8pt;
+      font-weight: 600;
+      color: #475569;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .entry-subheader {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 8.8pt;
+      font-style: italic;
+      color: #334155;
+      margin-bottom: 3px;
+    }
+
+    .entry-location {
+      font-style: normal;
+      font-size: 8.4pt;
+      color: #64748b;
+    }
+
+    /* Bullets */
+    .bullet-list {
+      list-style-type: disc;
+      margin-left: 16px;
+      padding-left: 0;
+    }
+
+    .bullet-list li {
+      font-size: 8.9pt;
+      color: var(--text-secondary);
+      line-height: 1.38;
+      margin-bottom: 3px;
+      text-align: justify;
+    }
+
+    .bullet-list li strong {
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    /* Skills Rows */
+    .skills-category-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .skill-category-row {
+      font-size: 8.9pt;
+      line-height: 1.38;
+      color: var(--text-secondary);
+    }
+
+    .skill-category-name {
+      font-weight: 700;
+      color: #0f172a;
+      min-width: 175px;
+      display: inline-block;
+    }
+
+    /* Certifications List */
+    .cert-list {
+      list-style-type: disc;
+      margin-left: 16px;
+    }
+
+    .cert-list li {
+      font-size: 8.9pt;
+      color: var(--text-secondary);
+      margin-bottom: 2.5px;
+      line-height: 1.35;
+    }
+
+    .cert-list li strong {
+      color: #0f172a;
+    }
+
+    .cert-issuer-badge {
+      font-size: 8.3pt;
+      color: #475569;
+      font-style: italic;
+    }
+
+    /* Toast Notification */
+    .toast-popup {
+      position: fixed;
+      bottom: 24px;
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid rgba(45, 212, 191, 0.4);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      z-index: 9999;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .toast-popup.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       PRINT STYLESHEET FOR CRISP A4 / LETTER PDF EXPORT
+       ========================================================================== */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 10mm 12mm 10mm 12mm;
+      }
+
+      body {
+        background-color: #ffffff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        color: #000000 !important;
+      }
+
+      .top-action-bar, .toast-popup {
+        display: none !important;
+      }
+
+      .resume-document {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+      }
+
+      .resume-header {
+        border-bottom-color: #000000 !important;
+        margin-bottom: 10px !important;
+        padding-bottom: 6px !important;
+      }
+
+      .candidate-name {
+        color: #000000 !important;
+        font-size: 18pt !important;
+      }
+
+      .candidate-title {
+        color: #000000 !important;
+        font-size: 9.5pt !important;
+      }
+
+      .section-title {
+        color: #000000 !important;
+        border-bottom-color: #000000 !important;
+        font-size: 9.8pt !important;
+        margin-bottom: 5px !important;
+      }
+
+      .resume-section {
+        margin-bottom: 10px !important;
+      }
+
+      .entry-title {
+        color: #000000 !important;
+      }
+
+      .bullet-list li strong {
+        color: #000000 !important;
+      }
+
+      a {
+        color: #000000 !important;
+        text-decoration: none !important;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        padding: 10px 8px 40px 8px;
+      }
+
+      .top-action-bar {
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 16px;
+      }
+
+      .action-bar-right {
+        justify-content: stretch;
+      }
+
+      .action-bar-right .btn-action {
+        flex: 1;
+        justify-content: center;
+        padding: 8px 6px;
+        font-size: 0.76rem;
+      }
+
+      .resume-document {
+        padding: 24px 18px;
+      }
+
+      .candidate-name {
+        font-size: 17pt;
+      }
+
+      .contact-line {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .contact-separator {
+        display: none;
+      }
+
+      .entry-header, .entry-subheader {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .skill-category-name {
+        display: block;
+        margin-bottom: 2px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Action Bar -->
+  <header class="top-action-bar" id="actionBar">
+    <div class="action-bar-left">
+      <span>Curriculum Vitae</span>
+      <span class="action-bar-badge">Data Science</span>
+    </div>
+    <div class="action-bar-right">
+      <button onclick="window.print()" class="btn-action btn-primary-action" title="Download or Print PDF">
+        <span>⬇️</span> Download PDF
+      </button>
+      <button id="copyAtsBtn" class="btn-action btn-secondary-action" title="Copy ATS Plaintext Format">
+        <span>📋</span> Copy ATS Text
+      </button>
+      <a href="index.html" class="btn-action btn-secondary-action" title="Return to Portfolio">
+        <span>←</span> Portfolio
+      </a>
+    </div>
+  </header>
+
+  <!-- Resume Document Canvas -->
+  <main class="resume-document" id="resumeDoc">
+
+    <!-- Header -->
+    <header class="resume-header">
+      <h1 class="candidate-name">Lawindi Tharunya</h1>
+      <div class="candidate-title">Data Science &amp; Analytics | Machine Learning &amp; Statistical Modeling</div>
+      
+      <div class="contact-line">
+        <span class="contact-item">Colombo, Sri Lanka</span>
+        <span class="contact-separator">•</span>
+        <span class="contact-item"><a href="https://wa.me/94715435636" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp">WhatsApp Direct</a></span>
+        <span class="contact-separator">•</span>
+        <span class="contact-item"><a href="mailto:mpltharunya22@gmail.com">mpltharunya22@gmail.com</a></span>
+        <span class="contact-separator">•</span>
+        <span class="contact-item"><a href="https://www.linkedin.com/in/lawindi-tharunya" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+        <span class="contact-separator">•</span>
+        <span class="contact-item"><a href="https://github.com/LavindiTharunya" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+      </div>
+    </header>
+
+    <!-- Summary -->
+    <section class="resume-section">
+      <h2 class="section-title">Professional Summary</h2>
+      <p class="summary-text">
+        Proactive and analytical undergraduate reading for a <strong>BSc (Hons) in Management &amp; Information Technology</strong> at the <strong>University of Kelaniya</strong>, building practical foundations in Data Science, Analytics, and Enterprise Data Systems. Gaining hands-on experience in <strong>Python (Pandas, NumPy, Matplotlib), SQL, exploratory data analysis (EDA), and relational database modeling</strong>, alongside exposure to machine learning fundamentals. Supported by certified banking operational experience at Bank of Ceylon with structured transaction records, proven leadership as Chief Coordinator for island-wide tech hackathons (<strong>hackX Jr. 9.0</strong>), and award-winning product ideation (InCo 2026 2nd Runner-up). Seeking a <strong>Data Science / Data Analyst Internship</strong> to apply analytical problem-solving, learn industry workflows, and contribute to data-backed decisions.
+      </p>
+    </section>
+
+    <!-- Education -->
+    <section class="resume-section">
+      <h2 class="section-title">Education</h2>
+
+      <div class="resume-entry">
+        <div class="entry-header">
+          <span class="entry-title">University of Kelaniya (UOK)</span>
+          <span class="entry-date">2023 – Present</span>
+        </div>
+        <div class="entry-subheader">
+          <span>BSc (Hons) in Management &amp; Information Technology</span>
+          <span class="entry-location">Kelaniya, Sri Lanka</span>
+        </div>
+        <ul class="bullet-list">
+          <li><strong>Specialization Focus:</strong> Data Science, Machine Learning, Statistical Analysis, Database Management Systems (DBMS), Operational Research, and Software Systems Architecture.</li>
+        </ul>
+      </div>
+
+      <div class="resume-entry">
+        <div class="entry-header">
+          <span class="entry-title">ICBT Campus</span>
+          <span class="entry-date">2023</span>
+        </div>
+        <div class="entry-subheader">
+          <span>Diploma in English</span>
+          <span class="entry-location">Colombo, Sri Lanka</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Completed comprehensive coursework in executive business communication, technical documentation, and professional presentations.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Technical & Analytical Skills -->
+    <section class="resume-section">
+      <h2 class="section-title">Technical &amp; Analytical Skills</h2>
+
+      <div class="skills-category-list">
+        <div class="skill-category-row">
+          <span class="skill-category-name">Data Science &amp; Analytics:</span>
+          <span>Exploratory Data Analysis (EDA), Data Preprocessing, Statistical Analysis Basics, Data Visualization (Matplotlib, Seaborn), Machine Learning Fundamentals</span>
+        </div>
+        <div class="skill-category-row">
+          <span class="skill-category-name">Programming:</span>
+          <span>Python (Pandas, NumPy, Matplotlib), SQL, Java, C++, JavaScript (ES6+), HTML5/CSS3</span>
+        </div>
+        <div class="skill-category-row">
+          <span class="skill-category-name">Databases &amp; Tools:</span>
+          <span>MySQL, PostgreSQL, JavaDB, Relational Schema Design (ERD), Git, GitHub, Jupyter Notebook, VS Code, Google Colab</span>
+        </div>
+        <div class="skill-category-row">
+          <span class="skill-category-name">Business &amp; Analytical:</span>
+          <span>Data Storytelling, Quantitative Analysis, Requirement Analysis, Operational Research, Process Improvement</span>
+        </div>
+        <div class="skill-category-row">
+          <span class="skill-category-name">Languages:</span>
+          <span>English (Professional Working), Sinhala (Native), Tamil (Moderate)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Projects -->
+    <section class="resume-section">
+      <h2 class="section-title">Key Projects &amp; Data Innovation</h2>
+
+      <!-- Project 1 -->
+      <div class="resume-entry">
+        <div class="entry-header">
+          <span class="entry-title">Hydro Habit — Smart Hydration for Family Care <span class="role-tag">(InCo 2026)</span></span>
+          <span class="entry-date">2026</span>
+        </div>
+        <div class="entry-subheader">
+          <span>Concept Lead &amp; Data/GTM Strategist | 🏆 2nd Runner-up (Marketing Category)</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Architected user behavioral data tracking flow and health metric benchmarks for an IoT smart hydration monitoring product.</li>
+          <li>Conducted quantitative market research, user segmentation analysis, and financial feasibility modeling for the InCo 2026 presentation.</li>
+        </ul>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="resume-entry">
+        <div class="entry-header">
+          <span class="entry-title">PharmaLink — Prescription Management &amp; Database System</span>
+          <span class="entry-date">2024 – 2025</span>
+        </div>
+        <div class="entry-subheader">
+          <span>Database Architecture &amp; Backend Logic | Java &amp; JavaDB (SQL) Application</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Engineered a desktop prescription management application for pharmacies to track inventory flow, patient histories, and order verification.</li>
+          <li>Designed normalized relational database schema (ERD), executed complex SQL queries, and integrated secure Java backend CRUD operations.</li>
+        </ul>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="resume-entry">
+        <div class="entry-header">
+          <span class="entry-title">Connect 4 Algorithmic State Engine</span>
+          <span class="entry-date">2024</span>
+        </div>
+        <div class="entry-subheader">
+          <span>Algorithms &amp; UI Architecture | C++ Application</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Developed an interactive Connect 4 application in C++ utilizing 2D matrix traversal algorithms for dynamic multi-directional win detection.</li>
+          <li>Implemented structured game loop state management and an interactive player configuration dashboard.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section class="resume-section">
+      <h2 class="section-title">Professional Experience</h2>
+
+      <div class="resume-entry">
+        <div class="entry-header">
+          <span class="entry-title">Bank of Ceylon (BOC) <span class="role-tag">— Trainee (Certified)</span></span>
+          <span class="entry-date">March 2024 – January 2025</span>
+        </div>
+        <div class="entry-subheader">
+          <span>Operational Banking, Transaction Auditing &amp; Customer Relations</span>
+          <span class="entry-location">Sri Lanka</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Managed day-to-day operational banking workflows and reconciled daily transaction datasets in compliance with strict accuracy standards.</li>
+          <li>Conducted financial documentation verification, customer profile audits, and structured data handling across core banking database platforms.</li>
+          <li>Assisted 50+ clients daily with account documentation, query resolution, and operational guidance.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="resume-section">
+      <h2 class="section-title">Certifications &amp; Achievements</h2>
+
+      <ul class="cert-list">
+        <li><strong>2nd Runner-up (Marketing Category)</strong> — InCo 2026 Product Competition (2026)</li>
+        <li><strong>Python Essentials for Data Science</strong> — Cisco Networking Academy <span class="cert-issuer-badge">(In Progress)</span></li>
+        <li><strong>Introduction to Data Science</strong> — Cisco Networking Academy</li>
+        <li><strong>Introduction to Programming &amp; Data Analysis</strong> — Kaggle</li>
+        <li><strong>Data Fundamentals</strong> — IBM</li>
+        <li><strong>Workplace Skills Certificate</strong> — MAS Holdings x University of Kelaniya</li>
+      </ul>
+    </section>
+
+    <!-- Leadership -->
+    <section class="resume-section">
+      <h2 class="section-title">Leadership &amp; Extracurricular Activities</h2>
+
+      <div class="resume-entry">
+        <div class="entry-header">
+          <span class="entry-title">Chief Coordinator — hackX Jr. 9.0</span>
+          <span class="entry-date">2026</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Led the central organizing committee for Sri Lanka's premier island-wide inter-school hackathon (<strong>hackX Jr. 9.0</strong>).</li>
+          <li>Directed technical logistics, event schedules, sponsor communications, and coordinated cross-functional student execution teams.</li>
+        </ul>
+      </div>
+
+      <div class="resume-entry" style="margin-bottom: 0;">
+        <ul class="bullet-list">
+          <li><strong>Member</strong> — AIESEC in University of Kelaniya (2023 – Present)</li>
+          <li><strong>Volunteer</strong> — IEEE Student Branch, University of Kelaniya</li>
+          <li><strong>Member</strong> — Industrial Management Science Students' Association (IMSSA)</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="toastPopup" class="toast-popup">
+    <span>📋</span> Plaintext ATS Resume copied to clipboard!
+  </div>
+
+  <script>
+    const atsPlainText = `LAWINDI THARUNYA
+Data Science & Analytics | Machine Learning & Statistical Modeling
+Colombo, Sri Lanka | WhatsApp: Direct Message | Email: mpltharunya22@gmail.com
+LinkedIn: linkedin.com/in/lawindi-tharunya | GitHub: github.com/LavindiTharunya
+
+============================================================
+PROFESSIONAL SUMMARY
+============================================================
+Proactive and analytical undergraduate reading for a BSc (Hons) in Management & Information Technology at the University of Kelaniya, building practical foundations in Data Science, Analytics, and Enterprise Data Systems. Gaining hands-on experience in Python (Pandas, NumPy, Matplotlib), SQL, exploratory data analysis (EDA), and relational database modeling, alongside exposure to machine learning fundamentals. Supported by certified banking operational experience at Bank of Ceylon with structured transaction records, proven leadership as Chief Coordinator for island-wide tech hackathons (hackX Jr. 9.0), and award-winning product ideation (InCo 2026 2nd Runner-up). Seeking a Data Science / Data Analyst Internship to apply analytical problem-solving, learn industry workflows, and contribute to data-backed decisions.
+
+============================================================
+EDUCATION
+============================================================
+BSc (Hons) in Management & Information Technology | 2023 - Present
+University of Kelaniya, Sri Lanka
+- Specialization Focus: Data Science, Machine Learning, Statistical Analysis, Database Management Systems (DBMS), Operational Research, and Software Systems Architecture.
+
+Diploma in English | 2023
+ICBT Campus, Sri Lanka
+- Coursework: Executive Business Communication, Technical Documentation, Professional Presentations.
+
+============================================================
+TECHNICAL & ANALYTICAL SKILLS
+============================================================
+- Data Science & Analytics: Exploratory Data Analysis (EDA), Data Preprocessing, Statistical Analysis Basics, Data Visualization (Matplotlib, Seaborn), Machine Learning Fundamentals
+- Programming: Python (Pandas, NumPy, Matplotlib), SQL, Java, C++, JavaScript (ES6+), HTML5/CSS3
+- Databases & Tools: MySQL, PostgreSQL, JavaDB, Relational Schema Design (ERD), Git, GitHub, Jupyter Notebook, VS Code, Google Colab
+- Business & Analytical: Data Storytelling, Quantitative Analysis, Requirement Analysis, Operational Research, Process Improvement
+- Languages: English (Professional Working), Sinhala (Native), Tamil (Moderate)
+
+============================================================
+KEY PROJECTS & DATA INNOVATION
+============================================================
+Hydro Habit - Smart Hydration for Family Care (InCo 2026) | 2026
+Role: Concept Lead & Data/GTM Strategist | Award: 2nd Runner-up (Marketing Category)
+- Architected user behavioral data tracking flow and health metric benchmarks for an IoT smart hydration monitoring product.
+- Conducted quantitative market research, user segmentation analysis, and financial feasibility modeling for InCo 2026.
+
+PharmaLink - Prescription Management & Database System | 2024 - 2025
+Role: Database Architecture & Backend Logic | Stack: Java, JavaDB, SQL
+- Engineered a desktop prescription management application for pharmacies to track inventory flow and patient records.
+- Designed normalized relational database schema (ERD), implemented SQL queries, and integrated Java CRUD operations.
+
+Connect 4 Algorithmic State Engine | 2024
+Role: Algorithms & UI Architecture | Stack: C++
+- Developed an interactive Connect 4 application in C++ utilizing 2D matrix traversal algorithms for dynamic win detection.
+- Implemented structured game loop state management and an interactive player configuration dashboard.
+
+============================================================
+PROFESSIONAL EXPERIENCE
+============================================================
+Bank of Ceylon (BOC) | Trainee (Certified)
+March 2024 - January 2025 | Sri Lanka
+- Managed day-to-day operational banking workflows and reconciled daily transaction datasets in compliance with strict accuracy standards.
+- Conducted financial documentation verification, customer profile audits, and structured data handling across core banking database platforms.
+- Assisted 50+ clients daily with account documentation, query resolution, and operational guidance.
+
+============================================================
+CERTIFICATIONS & AWARDS
+============================================================
+- 2nd Runner-up (Marketing Category) - InCo 2026 Product Competition (2026)
+- Python Essentials for Data Science - Cisco Networking Academy (In Progress)
+- Introduction to Data Science - Cisco Networking Academy
+- Introduction to Programming & Data Analysis - Kaggle
+- Data Fundamentals - IBM
+- Workplace Skills Certificate - MAS Holdings x University of Kelaniya
+
+============================================================
+LEADERSHIP & EXTRACURRICULAR INVOLVEMENT
+============================================================
+- Chief Coordinator - hackX Jr. 9.0 (2026): Led central organizing committee for premier island-wide inter-school hackathon.
+- Member - AIESEC in University of Kelaniya (2023 - Present)
+- Volunteer - IEEE Student Branch, University of Kelaniya
+- Member - Industrial Management Science Students' Association (IMSSA)`;
+
+    function showToast() {
+      const toast = document.getElementById('toastPopup');
+      if (!toast) return;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2600);
+    }
+
+    const copyBtn = document.getElementById('copyAtsBtn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(atsPlainText).then(() => {
+          showToast();
+        }).catch(() => {
+          const ta = document.createElement('textarea');
+          ta.value = atsPlainText;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          showToast();
+        });
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('print') === 'true' || urlParams.get('download') === 'pdf') {
+        setTimeout(() => {
+          window.print();
+        }, 400);
+      }
+    });
+  </script>
+</body>
+</html>

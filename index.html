@@ -48,7 +48,7 @@
           <li><a href="#certifications" class="nav-link">Certificates</a></li>
           <li><a href="#leadership" class="nav-link">Leadership</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
-          <li><a href="#contact" class="nav-cta">Download CV</a></li>
+          <li><button type="button" class="nav-cta btn-open-cv" aria-label="Open ATS Resume Modal">Download CV</button></li>
           <li>
             <button id="themeToggle" class="theme-toggle" aria-label="Toggle Light or Dark Theme" title="Toggle Light or Dark Mode">
               <span class="theme-icon">☀️</span>
@@ -66,26 +66,25 @@
         <div class="hero-grid">
           <div class="hero-content">
             <div class="hero-tag">
-              <span>✦</span> Data Science Enthusiast & Business Analyst
+              <span>✦</span> Aspiring Data Scientist &amp; Analytics Specialist
             </div>
             
             <h1 class="hero-headline">
-              Turning Data into <br>
-              <span class="gradient-text">Clear, Impactful Decisions.</span>
+              Turning Complex Data into <br>
+              <span class="gradient-text">Actionable Intelligence.</span>
             </h1>
 
             <p class="hero-intro">
-              I'm a Management &amp; Information Technology undergraduate at the University of Kelaniya with a strong passion for business analysis, data analytics, and supply chain optimization.
+              Management &amp; IT undergraduate at the University of Kelaniya, actively building skills in Data Science, Python analytics, SQL databases, and business problem-solving.
             </p>
 
             <div class="hero-actions">
               <a href="#projects" class="btn btn-primary">
                 View Projects <span>→</span>
               </a>
-              <!-- CV Download Link placeholder -->
-              <a href="#contact" class="btn btn-secondary" title="Contact to request full official resume">
+              <button type="button" class="btn btn-secondary btn-open-cv" title="Download Official Resume (PDF)">
                 Download CV <span>↓</span>
-              </a>
+              </button>
             </div>
 
             <!-- Stats Strip -->
@@ -144,35 +143,36 @@
       <div class="container">
         <div class="section-header">
           <span class="section-tag">About Me</span>
-          <h2 class="section-title">Bridging Tech Fluency with <span class="accent-rose">Real Business Impact</span></h2>
+          <h2 class="section-title">Bridging Data Science &amp; Tech Fluency with <span class="accent-rose">Real Business Impact</span></h2>
         </div>
 
         <div class="about-grid">
           <div class="about-card">
             <div class="about-text">
               <p>
-                I am currently reading for a <strong>BSc (Hons) in Management &amp; Information Technology</strong> at the <strong>University of Kelaniya</strong>. Prior to my degree studies, I completed a Diploma in English at ICBT Campus, which strengthened my professional communication and analytical thinking capabilities.
+                Undergraduate reading for a <strong>BSc (Hons) in Management &amp; Information Technology</strong> at the <strong>University of Kelaniya</strong>, passionate about applying data analysis, statistical thinking, and database engineering to solve real-world problems.
               </p>
               
               <div class="about-highlight-box">
-                <div class="about-highlight-title">Career Goal</div>
+                <div class="about-highlight-title">Focus &amp; Ambition</div>
                 <div class="about-highlight-desc">
-                  To grow into a data-driven Business Analyst role that combines rigorous data fluency with a deep understanding of organizational processes and market strategy.
+                  To develop strong hands-on capabilities in data analytics, machine learning fundamentals, and database engineering to support data-driven decision-making.
                 </div>
               </div>
 
               <p>
-                Currently, I am expanding my data engineering and analytical capabilities through the <strong>Python Essentials for Data Science</strong> program by Cisco Networking Academy.
+                Currently expanding practical knowledge in exploratory data analysis (EDA), statistical methods, and data pipelines through Cisco's <strong>Python Essentials for Data Science</strong> program and Kaggle challenges.
               </p>
             </div>
 
             <h3 class="interest-tags-title">Primary Focus Areas</h3>
             <div class="interest-tags">
-              <span class="tag-pill">Business Analysis</span>
               <span class="tag-pill">Data Science</span>
-              <span class="tag-pill">Supply Chain Management</span>
-              <span class="tag-pill">Process Improvement</span>
-              <span class="tag-pill">Product Thinking</span>
+              <span class="tag-pill">Machine Learning</span>
+              <span class="tag-pill">Statistical Modeling</span>
+              <span class="tag-pill">Python &amp; SQL</span>
+              <span class="tag-pill">Business Intelligence</span>
+              <span class="tag-pill">Database Architecture</span>
             </div>
           </div>
 
@@ -194,7 +194,7 @@
 
             <div class="side-card-item">
               <div class="side-card-label">Current Focus</div>
-              <div class="side-card-value">Python for Data Science &amp; Business Process Design</div>
+              <div class="side-card-value">Python for Data Science &amp; Machine Learning Pipelines</div>
             </div>
 
             <div class="side-card-item">
@@ -202,6 +202,12 @@
               <div class="side-card-value" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-teal);">
                 mpltharunya22@gmail.com
               </div>
+            </div>
+
+            <div class="side-card-item" style="padding-top: 6px; border-bottom: none;">
+              <button type="button" class="btn btn-secondary btn-open-cv" style="width: 100%; justify-content: center; font-size: 0.85rem;" title="View and download official resume">
+                <span>📄</span> View Resume
+              </button>
             </div>
           </div>
         </div>
@@ -213,63 +219,70 @@
       <div class="container">
         <div class="section-header">
           <span class="section-tag">Skills</span>
-          <h2 class="section-title">Technical &amp; <span class="accent-teal">Domain Expertise</span></h2>
+          <h2 class="section-title">Technical &amp; <span class="accent-teal">Analytical Skills</span></h2>
         </div>
 
         <div class="skills-grid">
+          <!-- Data Science & Analytics -->
+          <div class="skill-card pink-icon">
+            <div class="skill-card-icon">📊</div>
+            <h3 class="skill-card-title">Data Science &amp; Analytics</h3>
+            <div class="skill-tags-list">
+              <span class="skill-chip">Python (Pandas, NumPy)</span>
+              <span class="skill-chip">Exploratory Data Analysis (EDA)</span>
+              <span class="skill-chip">Data Preprocessing</span>
+              <span class="skill-chip">Data Visualization</span>
+              <span class="skill-chip">Statistical Basics</span>
+              <span class="skill-chip">ML Fundamentals</span>
+            </div>
+          </div>
+
+          <!-- Databases & SQL -->
+          <div class="skill-card">
+            <div class="skill-card-icon">🗄️</div>
+            <h3 class="skill-card-title">Databases &amp; SQL</h3>
+            <div class="skill-tags-list">
+              <span class="skill-chip">SQL</span>
+              <span class="skill-chip">MySQL</span>
+              <span class="skill-chip">PostgreSQL</span>
+              <span class="skill-chip">JavaDB</span>
+              <span class="skill-chip">Relational Schema (ERD)</span>
+            </div>
+          </div>
+
           <!-- Programming -->
           <div class="skill-card">
             <div class="skill-card-icon">⚡</div>
             <h3 class="skill-card-title">Programming</h3>
             <div class="skill-tags-list">
+              <span class="skill-chip">Python</span>
               <span class="skill-chip">Java</span>
               <span class="skill-chip">C++</span>
-              <span class="skill-chip">Python (Learning)</span>
+              <span class="skill-chip">JavaScript (ES6+)</span>
             </div>
           </div>
 
-          <!-- Data Science -->
-          <div class="skill-card pink-icon">
-            <div class="skill-card-icon">📊</div>
-            <h3 class="skill-card-title">Data Science (Growing)</h3>
+          <!-- Business & Analytics -->
+          <div class="skill-card amber-icon">
+            <div class="skill-card-icon">🎯</div>
+            <h3 class="skill-card-title">Business &amp; Analytics</h3>
             <div class="skill-tags-list">
-              <span class="skill-chip">Data Analysis Basics</span>
-              <span class="skill-chip">Python for Data Science</span>
-              <span class="skill-chip">Data Fundamentals</span>
+              <span class="skill-chip">Business Intelligence</span>
+              <span class="skill-chip">Quantitative Analysis</span>
+              <span class="skill-chip">Requirement Engineering</span>
+              <span class="skill-chip">Operational Research</span>
             </div>
           </div>
 
-          <!-- Web Development -->
+          <!-- Web & UI Development -->
           <div class="skill-card">
             <div class="skill-card-icon">🌐</div>
             <h3 class="skill-card-title">Web Development</h3>
             <div class="skill-tags-list">
               <span class="skill-chip">HTML5</span>
               <span class="skill-chip">CSS3</span>
-              <span class="skill-chip">JavaScript (Vanilla)</span>
-            </div>
-          </div>
-
-          <!-- Business & Process -->
-          <div class="skill-card amber-icon">
-            <div class="skill-card-icon">🎯</div>
-            <h3 class="skill-card-title">Business &amp; Process</h3>
-            <div class="skill-tags-list">
-              <span class="skill-chip">Requirement Analysis</span>
-              <span class="skill-chip">Process Improvement</span>
-              <span class="skill-chip">Database Fundamentals</span>
-            </div>
-          </div>
-
-          <!-- Soft Skills -->
-          <div class="skill-card pink-icon">
-            <div class="skill-card-icon">💡</div>
-            <h3 class="skill-card-title">Soft Skills</h3>
-            <div class="skill-tags-list">
-              <span class="skill-chip">Teamwork &amp; Collaboration</span>
-              <span class="skill-chip">Time Management &amp; Discipline</span>
-              <span class="skill-chip">Critical Thinking</span>
-              <span class="skill-chip">Willingness to Learn</span>
+              <span class="skill-chip">JavaScript</span>
+              <span class="skill-chip">Responsive UI</span>
             </div>
           </div>
 
@@ -588,15 +601,15 @@
           <h2 class="section-title">Leadership &amp; <span class="accent-rose">Extracurriculars</span></h2>
         </div>
 
-        <!-- Featured Leadership Spotlight Card (HackX Jr. 9.0) -->
+        <!-- Featured Leadership Spotlight Card (hackX Jr. 9.0) -->
         <div class="leadership-featured">
           <div class="leadership-photo-slot">
             <!-- =========================================================================
                  IMAGE SLOT 5: HACKX JR. 9.0 LEADERSHIP PHOTO
                  To swap in your real event/leadership photo, replace below:
-                 <img src="assets/images/hackx-leadership-real.jpg" alt="Chief Coordinator HackX Jr 9.0" class="leadership-img">
+                 <img src="assets/images/hackx-leadership-real.jpg" alt="Chief Coordinator hackX Jr. 9.0" class="leadership-img">
                  ========================================================================= -->
-            <!-- Replace with: <img src="assets/images/hackx-leadership-real.jpg" alt="HackX Jr 9.0 Chief Coordinator"> -->
+            <!-- Replace with: <img src="assets/images/hackx-leadership-real.jpg" alt="hackX Jr. 9.0 Chief Coordinator"> -->
             <div class="project-img-placeholder">
               <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--accent-rose)" stroke-width="1.5">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -604,16 +617,16 @@
                 <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
               </svg>
-              <h4 style="margin-top: 14px; font-family: var(--font-serif); color: var(--text-primary);">HackX Jr. 9.0 Leadership Photo</h4>
+              <h4 style="margin-top: 14px; font-family: var(--font-serif); color: var(--text-primary);">hackX Jr. 9.0 Leadership Photo</h4>
               <p style="font-size: 0.8rem; color: var(--text-muted);">Chief Coordinator Role</p>
             </div>
           </div>
 
           <div class="leadership-content">
             <div class="leadership-tag">★ Featured Leadership Role</div>
-            <h3 class="leadership-title">Chief Coordinator — HackX Jr. 9.0 (2026)</h3>
+            <h3 class="leadership-title">Chief Coordinator — hackX Jr. 9.0 (2026)</h3>
             <p class="leadership-desc">
-              Leading the central organizational committee for <strong>HackX Jr. 9.0</strong>, a premier island-wide inter-school hackathon. Overseeing overall event planning, venue logistics, sponsorship outreach, and coordinating cross-functional student execution teams to empower young tech innovators.
+              Leading the central organizational committee for <strong>hackX Jr. 9.0</strong>, a premier island-wide inter-school hackathon. Overseeing overall event planning, venue logistics, sponsorship outreach, and coordinating cross-functional student execution teams to empower young tech innovators.
             </p>
           </div>
         </div>
@@ -660,25 +673,25 @@
           <div class="contact-info-card">
             <h3>Reach Out</h3>
             <p>
-              Whether you're interested in discussing business analytics, data science projects, or internship opportunities, feel free to drop a message or connect directly!
+              Whether you're interested in discussing data science projects, predictive modeling, machine learning solutions, or internship opportunities, feel free to drop a message or connect directly!
             </p>
 
             <div class="contact-details-list">
-              <div class="contact-item" data-copy="mpltharunya22@gmail.com" title="Click to copy email">
+              <a href="mailto:mpltharunya22@gmail.com" class="contact-item" data-copy="mpltharunya22@gmail.com" title="Click to email mpltharunya22@gmail.com">
                 <div class="contact-icon">✉️</div>
                 <div>
                   <div class="contact-text-label">Email Address</div>
                   <div class="contact-text-value">mpltharunya22@gmail.com</div>
                 </div>
-              </div>
+              </a>
 
-              <div class="contact-item" data-copy="+94715435636" title="Click to copy phone number">
-                <div class="contact-icon">📞</div>
+              <a href="https://wa.me/94715435636" target="_blank" rel="noopener noreferrer" class="contact-item" title="Chat directly with Lawindi on WhatsApp">
+                <div class="contact-icon">💬</div>
                 <div>
-                  <div class="contact-text-label">Phone Number</div>
-                  <div class="contact-text-value">+94 71 543 5636</div>
+                  <div class="contact-text-label">WhatsApp Direct</div>
+                  <div class="contact-text-value">Chat on WhatsApp</div>
                 </div>
-              </div>
+              </a>
 
               <div class="contact-item">
                 <div class="contact-icon">📍</div>
@@ -689,31 +702,27 @@
               </div>
             </div>
 
-            <!-- Social Links with Placeholders -->
+            <!-- Social Links with Direct Profiles -->
             <div class="social-links">
-              <!-- =========================================================================
-                   LINKEDIN PROFILE URL PLACEHOLDER
-                   Replace href="#" with your real LinkedIn profile URL e.g.:
-                   href="https://linkedin.com/in/yourprofile"
-                   ========================================================================= -->
-              <!-- Replace # with your real LinkedIn URL e.g., https://linkedin.com/in/yourprofile -->
-              <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" title="LinkedIn Profile (Replace # with real URL)">
+              <a href="https://www.linkedin.com/in/lawindi-tharunya" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" title="LinkedIn: Lawindi Tharunya">
                 in
               </a>
 
-              <!-- =========================================================================
-                   GITHUB PROFILE URL PLACEHOLDER
-                   Replace href="#" with your real GitHub profile URL e.g.:
-                   href="https://github.com/yourusername"
-                   ========================================================================= -->
-              <!-- Replace # with your real GitHub URL e.g., https://github.com/yourusername -->
-              <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" title="GitHub Profile (Replace # with real URL)">
+              <a href="https://github.com/LavindiTharunya" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" title="GitHub: LavindiTharunya">
                 gh
+              </a>
+
+              <a href="https://wa.me/94715435636" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+                💬
+              </a>
+
+              <a href="mailto:mpltharunya22@gmail.com" class="social-btn" aria-label="Send Direct Email" title="Email: mpltharunya22@gmail.com">
+                ✉️
               </a>
             </div>
           </div>
 
-          <!-- Contact Form Simulation -->
+          <!-- Contact Form with Direct Email & WhatsApp Routing -->
           <div class="contact-form-card">
             <form id="contactForm">
               <div class="form-group">
@@ -731,15 +740,54 @@
                 <textarea id="formMessage" class="form-textarea" placeholder="Write your message here..." required></textarea>
               </div>
 
-              <button type="submit" class="btn btn-primary" style="width: 100%;">
-                Send Message <span>✉️</span>
-              </button>
+              <div class="form-actions-group" style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <button type="submit" id="sendEmailSubmitBtn" class="btn btn-primary" style="flex: 1; min-width: 170px; justify-content: center;">
+                  <span>✉️</span> Send via Email
+                </button>
+                <button type="button" id="sendWhatsAppBtn" class="btn btn-whatsapp" style="flex: 1; min-width: 170px; justify-content: center; background: #25D366; color: #ffffff; border: none; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);">
+                  <span>💬</span> Send via WhatsApp
+                </button>
+              </div>
             </form>
           </div>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- =========================================================================
+       PROFESSIONAL CV MODAL & DOWNLOAD PREVIEW
+       ========================================================================= -->
+  <div id="cvModal" class="cv-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
+    <div class="cv-modal-window">
+      <div class="cv-modal-header">
+        <div class="cv-modal-title-group">
+          <span class="cv-badge">
+            <span class="cv-badge-dot"></span> Curriculum Vitae
+          </span>
+          <h2 id="cvModalTitle" class="cv-modal-title">Lawindi Tharunya</h2>
+          <p class="cv-modal-subtitle">Data Science &amp; Analytics | Machine Learning &amp; Statistical Modeling</p>
+        </div>
+        <button type="button" class="cv-modal-close" id="closeCvModal" aria-label="Close CV Modal">&times;</button>
+      </div>
+
+      <div class="cv-modal-actions-bar">
+        <a href="resume.html?download=pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary cv-action-btn" title="Download or Print PDF">
+          <span>⬇️</span> Download PDF
+        </a>
+        <button type="button" id="copyCvPlaintextBtn" class="btn btn-secondary cv-action-btn" title="Copy ATS Plaintext to Clipboard">
+          <span>📋</span> Copy ATS Text
+        </button>
+        <a href="resume.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary cv-action-btn" title="Open Fullscreen in New Tab">
+          <span>↗️</span> Fullscreen View
+        </a>
+      </div>
+
+      <div class="cv-modal-preview-container">
+        <iframe src="resume.html" title="Curriculum Vitae Preview" class="cv-preview-iframe" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
 
   <!-- Toast Notification Feedback -->
   <div id="toast" class="toast">
