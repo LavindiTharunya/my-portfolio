@@ -531,13 +531,13 @@ LinkedIn: linkedin.com/in/lawindi-tharunya | GitHub: github.com/LavindiTharunya
 ============================================================
 PROFESSIONAL SUMMARY
 ============================================================
-Proactive and analytical undergraduate reading for a BSc (Hons) in Management & Information Technology at the University of Kelaniya, building practical foundations in Data Science, Analytics, and Enterprise Data Systems. Gaining hands-on experience in Python (Pandas, NumPy, Matplotlib), SQL, exploratory data analysis (EDA), and relational database modeling, alongside exposure to machine learning fundamentals. Supported by certified banking operational experience at Bank of Ceylon with structured transaction records, proven leadership as Chief Coordinator for island-wide tech hackathons (hackX Jr. 9.0), and award-winning product ideation (InCo 2026 2nd Runner-up). Seeking a Data Science / Data Analyst Internship to apply analytical problem-solving, learn industry workflows, and contribute to data-backed decisions.
+Proactive and analytical undergraduate reading for a BSc (Hons) in Management & Information Technology at the Department of Industrial Management, Faculty of Science, University of Kelaniya (UOK), building practical foundations in Data Science, Analytics, and Enterprise Data Systems. Gaining hands-on experience in Python (Pandas, NumPy, Matplotlib), SQL, exploratory data analysis (EDA), and relational database modeling, alongside exposure to machine learning fundamentals. Supported by certified banking operational experience at Bank of Ceylon with structured transaction records, proven leadership as Chief Coordinator for island-wide tech hackathons (hackX Jr. 9.0), and award-winning product ideation (InCo 2026 2nd Runner-up). Seeking a Data Science / Data Analyst Internship to apply analytical problem-solving, learn industry workflows, and contribute to data-backed decisions.
 
 ============================================================
 EDUCATION
 ============================================================
 BSc (Hons) in Management & Information Technology | 2023 - Present
-University of Kelaniya, Sri Lanka
+Department of Industrial Management, Faculty of Science, University of Kelaniya (UOK), Sri Lanka
 - Specialization Focus: Data Science, Machine Learning, Statistical Analysis, Database Management Systems (DBMS), Operational Research, and Software Systems Architecture.
 
 Diploma in English | 2023
