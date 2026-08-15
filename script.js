@@ -295,7 +295,7 @@ function initCopyActions() {
 }
 
 /* --------------------------------------------------------------------------
-   6. CONTACT FORM DIRECT MESSAGE SUBMISSION HANDLER
+   6. CONTACT FORM MESSAGE SUBMISSION HANDLER
    -------------------------------------------------------------------------- */
 function initFormHandler() {
   const form = document.getElementById('contactForm');
@@ -305,36 +305,36 @@ function initFormHandler() {
   const emailInput = document.getElementById('formEmail');
   const messageInput = document.getElementById('formMessage');
 
-  // Direct Submission via WhatsApp Instant Message (Accessible & Fast)
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = nameInput.value.trim();
-    const contact = emailInput.value.trim();
+    const email = emailInput.value.trim();
     const message = messageInput.value.trim();
 
-    if (!name || !contact || !message) {
+    if (!name || !email || !message) {
       if (window.showToastNotification) {
-        window.showToastNotification('⚠️ Please fill in your name, contact, and message.');
+        window.showToastNotification('⚠️ Please fill in all fields before sending.');
       }
       return;
     }
 
-    const phone = '94715435636';
-    const text = `👋 Hello Lawindi,\n\nYou have a new inquiry from your portfolio website:\n\n` +
-      `👤 Name: ${name}\n` +
-      `📞 Contact Info: ${contact}\n\n` +
-      `💬 Message:\n${message}\n\n` +
-      `--\nSent via Lawindi Tharunya's Portfolio`;
+    const recipient = 'mpltharunya22@gmail.com';
+    const subject = encodeURIComponent(`Portfolio Message from ${name}`);
+    const body = encodeURIComponent(
+      `Hello Lawindi,\n\nYou have received a new message from your portfolio website:\n\n` +
+      `Name: ${name}\n` +
+      `Email: ${email}\n\n` +
+      `Message:\n${message}\n\n` +
+      `--\nSent via Lawindi Tharunya's Portfolio`
+    );
 
-    const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+    const mailtoUrl = `mailto:${recipient}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoUrl;
 
     if (window.showToastNotification) {
-      window.showToastNotification(`💬 Opening WhatsApp to send your message to Lawindi...`);
+      window.showToastNotification(`✉️ Opening email client to send message to Lawindi...`);
     }
 
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-
-    // Reset form after sending
     form.reset();
   });
 }
@@ -432,7 +432,7 @@ function initCvModal() {
 
   const atsPlainText = `LAWINDI THARUNYA
 Data Science & Analytics | Machine Learning & Statistical Modeling
-Colombo, Sri Lanka | Phone / WhatsApp: +94 71 543 5636
+Colombo, Sri Lanka | Phone: +94 71 543 5636 | Email: mpltharunya22@gmail.com
 LinkedIn: linkedin.com/in/lawindi-tharunya | GitHub: github.com/LavindiTharunya
 
 ============================================================

@@ -198,10 +198,19 @@
             </div>
 
             <div class="side-card-item">
-              <div class="side-card-label">Direct Contact / Phone</div>
+              <div class="side-card-label">Contact Phone</div>
               <div class="side-card-value" style="font-family: var(--font-mono); font-size: 0.88rem; color: var(--accent-teal);">
-                <a href="https://wa.me/94715435636" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;" title="Call or WhatsApp +94 71 543 5636">
+                <a href="tel:+94715435636" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;" title="Call +94 71 543 5636">
                   <span>📞</span> +94 71 543 5636
+                </a>
+              </div>
+            </div>
+
+            <div class="side-card-item">
+              <div class="side-card-label">Contact Email</div>
+              <div class="side-card-value" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-teal);">
+                <a href="mailto:mpltharunya22@gmail.com" style="color: inherit; text-decoration: none;" title="Email Lawindi">
+                  mpltharunya22@gmail.com
                 </a>
               </div>
             </div>
@@ -675,7 +684,7 @@
           <div class="contact-info-card">
             <h3>Direct Contact</h3>
             <p>
-              Whether you're interested in discussing data science projects, predictive modeling, machine learning solutions, or internship opportunities, feel free to call or send a direct message!
+              Whether you're interested in discussing data science projects, predictive modeling, machine learning solutions, or internship opportunities, feel free to call, email, or send a message!
             </p>
 
             <div class="contact-details-list">
@@ -687,11 +696,11 @@
                 </div>
               </a>
 
-              <a href="https://wa.me/94715435636" target="_blank" rel="noopener noreferrer" class="contact-item" title="Chat directly with Lawindi on WhatsApp">
-                <div class="contact-icon" style="background: rgba(37, 211, 102, 0.15); color: #25D366;">💬</div>
+              <a href="mailto:mpltharunya22@gmail.com" class="contact-item" data-copy="mpltharunya22@gmail.com" title="Click to email or copy mpltharunya22@gmail.com">
+                <div class="contact-icon">✉️</div>
                 <div>
-                  <div class="contact-text-label">WhatsApp Direct</div>
-                  <div class="contact-text-value">+94 71 543 5636 (Chat Online)</div>
+                  <div class="contact-text-label">Email Address</div>
+                  <div class="contact-text-value">mpltharunya22@gmail.com</div>
                 </div>
               </a>
 
@@ -714,8 +723,8 @@
                 gh
               </a>
 
-              <a href="https://wa.me/94715435636" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="WhatsApp: +94 71 543 5636" style="color: #25D366;">
-                💬
+              <a href="mailto:mpltharunya22@gmail.com" class="social-btn" aria-label="Send Email" title="Email: mpltharunya22@gmail.com">
+                ✉️
               </a>
 
               <a href="tel:+94715435636" class="social-btn" aria-label="Call Direct" title="Call: +94 71 543 5636">
@@ -724,11 +733,11 @@
             </div>
           </div>
 
-          <!-- Contact Form with Direct Instant Message Routing -->
+          <!-- Contact Form -->
           <div class="contact-form-card">
-            <h3 style="font-size: 1.4rem; margin-bottom: 8px;">Send a Direct Message</h3>
+            <h3 style="font-size: 1.4rem; margin-bottom: 8px;">Send a Message</h3>
             <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 24px;">
-              Fill in your details below. When you click <strong>Send Message</strong>, your message will be dispatched directly to my WhatsApp (+94 71 543 5636) for a fast response.
+              Have a question or opportunity to discuss? Fill in your details below and send a direct message.
             </p>
             <form id="contactForm">
               <div class="form-group">
@@ -737,8 +746,8 @@
               </div>
 
               <div class="form-group">
-                <label for="formEmail" class="form-label">Your Email / Contact Number</label>
-                <input type="text" id="formEmail" class="form-input" placeholder="e.g. sarah@example.com or 07X XXX XXXX" required>
+                <label for="formEmail" class="form-label">Your Email</label>
+                <input type="email" id="formEmail" class="form-input" placeholder="e.g. sarah@example.com" required>
               </div>
 
               <div class="form-group">
@@ -746,13 +755,10 @@
                 <textarea id="formMessage" class="form-textarea" placeholder="Write your message or inquiry here..." rows="4" required></textarea>
               </div>
 
-              <div class="form-actions-group" style="display: flex; gap: 12px; flex-wrap: wrap;">
-                <button type="submit" id="sendMessageSubmitBtn" class="btn btn-whatsapp" style="flex: 1.2; min-width: 210px; justify-content: center; font-size: 0.95rem;">
-                  <span>🚀</span> Send Message via WhatsApp
+              <div class="form-actions-group">
+                <button type="submit" id="sendMessageSubmitBtn" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 0.95rem;">
+                  <span>✉️</span> Send Message
                 </button>
-                <a href="https://wa.me/94715435636?text=Hi%20Lawindi,%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect!" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="flex: 0.8; min-width: 140px; justify-content: center;">
-                  <span>💬</span> Quick Chat
-                </a>
               </div>
             </form>
           </div>
