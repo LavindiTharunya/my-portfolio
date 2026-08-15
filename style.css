@@ -7,14 +7,21 @@
    1. CSS CUSTOM PROPERTIES & TOKENS
    -------------------------------------------------------------------------- */
 :root {
-  /* Color Palette */
+  /* Color Palette — Dark Mode (Default) */
   --bg-dark: #0b111e;
   --bg-dark-secondary: #111a2e;
   --bg-card: rgba(17, 26, 46, 0.7);
+  --bg-card-featured: linear-gradient(135deg, rgba(17, 26, 46, 0.95), rgba(20, 32, 58, 0.9));
+  --bg-placeholder: radial-gradient(circle at center, rgba(6, 182, 212, 0.15) 0%, rgba(11, 17, 30, 0.9) 100%);
+  --bg-contribution: rgba(255, 255, 255, 0.04);
+  --bg-chip: rgba(255, 255, 255, 0.05);
+  --bg-award-card: linear-gradient(135deg, rgba(17, 26, 46, 0.9), rgba(30, 24, 15, 0.8));
   --bg-glass: rgba(255, 255, 255, 0.03);
   --bg-glass-hover: rgba(255, 255, 255, 0.07);
   --border-glass: rgba(255, 255, 255, 0.08);
   --border-glass-accent: rgba(6, 182, 212, 0.3);
+  --nav-bg: rgba(11, 17, 30, 0.7);
+  --nav-bg-scrolled: rgba(11, 17, 30, 0.94);
 
   /* Primary Accents */
   --accent-teal: #06b6d4;
@@ -60,6 +67,108 @@
   --glow-rose: 0 0 25px rgba(244, 114, 182, 0.2);
 }
 
+/* Light Theme Overrides (Chic Soft Pearl & Warm Rosé Aesthetic) */
+[data-theme="light"] {
+  color-scheme: light;
+  --bg-dark: #faf8f5;
+  --bg-dark-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-featured: linear-gradient(135deg, #ffffff, #fffdf5);
+  --bg-placeholder: linear-gradient(135deg, rgba(13, 148, 136, 0.08), rgba(219, 39, 119, 0.08));
+  --bg-contribution: rgba(219, 39, 119, 0.05);
+  --bg-chip: rgba(15, 23, 42, 0.05);
+  --bg-award-card: linear-gradient(135deg, #ffffff, #fffdf5);
+  --bg-glass: rgba(235, 230, 224, 0.4);
+  --bg-glass-hover: rgba(235, 230, 224, 0.6);
+  --border-glass: rgba(15, 23, 42, 0.1);
+  --border-glass-accent: rgba(13, 148, 136, 0.4);
+  --nav-bg: rgba(250, 248, 245, 0.88);
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.98);
+
+  /* Refined Accents for Light Theme */
+  --accent-teal: #0d9488;
+  --accent-teal-glow: rgba(13, 148, 136, 0.15);
+  --accent-cyan: #0284c7;
+
+  --accent-rose: #db2777;
+  --accent-rose-glow: rgba(219, 39, 119, 0.15);
+  --accent-pink: #be185d;
+
+  --accent-amber: #d97706;
+  --accent-amber-glow: rgba(217, 119, 6, 0.15);
+
+  /* Deep Violet Slate Text for Pristine Legibility */
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-accent: #0f766e;
+
+  --shadow-card: 0 10px 30px -10px rgba(15, 23, 42, 0.08);
+  --glow-teal: 0 0 25px rgba(13, 148, 136, 0.12);
+  --glow-rose: 0 0 25px rgba(219, 39, 119, 0.12);
+}
+
+/* Global Smooth Theme Color Transition */
+html,
+body, 
+.navbar, 
+.about-card, 
+.about-side-card, 
+.skill-card, 
+.project-card,
+.project-card.featured,
+.project-image-slot,
+.project-img-placeholder,
+.project-contribution-box,
+.tech-tag,
+.skill-chip,
+.timeline-card, 
+.cert-card,
+.cert-card.award-card,
+.leadership-featured,
+.leadership-photo-slot,
+.extra-card, 
+.contact-info-card, 
+.contact-form-card, 
+.stats-strip, 
+.theme-toggle, 
+.form-input, 
+.form-textarea {
+  transition: background 0.4s ease,
+              background-color 0.4s ease,
+              color 0.4s ease,
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+}
+
+/* Theme Toggle Button Animation */
+.theme-toggle.animating {
+  animation: themeBtnSpin 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes themeBtnSpin {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.25) rotate(180deg); }
+  100% { transform: scale(1) rotate(360deg); }
+}
+
+/* Circular Wave Screen Reveal (View Transitions API) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+  height: 100%;
+  width: 100%;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
 /* --------------------------------------------------------------------------
    2. RESET & BASE STYLES
    -------------------------------------------------------------------------- */
@@ -73,6 +182,9 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   color-scheme: dark;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 body {
@@ -81,6 +193,8 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
   position: relative;
   -webkit-font-smoothing: antialiased;
 }
@@ -115,8 +229,8 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   z-index: -1;
   pointer-events: none;
   opacity: 0.6;
@@ -231,15 +345,15 @@ section {
   height: var(--nav-height);
   z-index: 1000;
   transition: var(--transition-normal);
-  background: rgba(11, 17, 30, 0.7);
+  background: var(--nav-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-glass);
 }
 
 .navbar.scrolled {
-  background: rgba(11, 17, 30, 0.92);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  background: var(--nav-bg-scrolled);
+  box-shadow: var(--shadow-card);
 }
 
 .nav-container {
@@ -277,7 +391,7 @@ section {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 32px;
+  gap: 28px;
   align-items: center;
 }
 
@@ -327,8 +441,32 @@ section {
 
 .nav-cta:hover {
   background: var(--accent-teal);
-  color: var(--bg-dark);
+  color: var(--bg-dark-secondary);
   box-shadow: var(--glow-teal);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  color: var(--text-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: var(--transition-normal);
+  outline: none;
+}
+
+.theme-toggle:hover {
+  background: var(--bg-glass-hover);
+  border-color: var(--accent-teal);
+  color: var(--accent-teal);
+  transform: rotate(15deg) scale(1.05);
 }
 
 .nav-toggle {
@@ -486,28 +624,88 @@ section {
   margin-top: 4px;
 }
 
-/* Circular Photo Placeholder Frame */
+/* Circular Photo Frame & Multi-Layer Animations */
 .hero-photo-wrapper {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 360px;
+  height: 360px;
+  margin: 0 auto;
+}
+
+/* Orbiting Data Nodes */
+.photo-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.photo-orbit.orbit-1 {
+  width: 355px;
+  height: 355px;
+  margin-top: -177.5px;
+  margin-left: -177.5px;
+  animation: orbit-rotate 12s linear infinite;
+}
+
+.photo-orbit.orbit-2 {
+  width: 380px;
+  height: 380px;
+  margin-top: -190px;
+  margin-left: -190px;
+  animation: orbit-rotate 16s linear infinite reverse;
+}
+
+@keyframes orbit-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.orbit-node {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  border-radius: 50%;
+}
+
+.orbit-node.node-teal {
+  background: var(--accent-teal);
+  box-shadow: 0 0 10px var(--accent-teal);
+}
+
+.orbit-node.node-rose {
+  background: var(--accent-rose);
+  box-shadow: 0 0 10px var(--accent-rose);
 }
 
 .photo-frame {
   position: relative;
-  width: 320px;
-  height: 320px;
+  width: 310px;
+  height: 310px;
   border-radius: 50%;
-  padding: 8px;
+  padding: 6px;
   background: linear-gradient(135deg, var(--accent-teal), var(--accent-rose), var(--accent-amber));
-  box-shadow: 0 0 50px rgba(6, 182, 212, 0.25);
+  box-shadow: 0 10px 40px rgba(6, 182, 212, 0.25);
   animation: float-frame 6s ease-in-out infinite;
+  transition: var(--transition-normal);
+  z-index: 2;
+}
+
+.photo-frame:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 45px rgba(6, 182, 212, 0.35), 0 0 30px rgba(244, 114, 182, 0.3);
 }
 
 @keyframes float-frame {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  50% { transform: translateY(-10px); }
 }
 
 .photo-inner {
@@ -538,23 +736,6 @@ section {
   text-align: center;
   padding: 20px;
   color: var(--text-secondary);
-}
-
-.photo-badge {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: var(--bg-dark-secondary);
-  border: 1px solid var(--accent-teal);
-  border-radius: var(--radius-full);
-  padding: 8px 16px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--accent-teal);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-  display: flex;
-  align-items: center;
-  gap: 6px;
 }
 
 /* --------------------------------------------------------------------------
@@ -810,19 +991,19 @@ section {
 }
 
 .project-card.featured {
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  background: linear-gradient(135deg, rgba(17, 26, 46, 0.95), rgba(20, 32, 58, 0.9));
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  background: var(--bg-card-featured);
 }
 
 .project-card.featured:hover {
   border-color: var(--accent-amber);
-  box-shadow: 0 10px 40px rgba(245, 158, 11, 0.2);
+  box-shadow: 0 10px 40px rgba(245, 158, 11, 0.25);
 }
 
 .project-image-slot {
   position: relative;
   min-height: 280px;
-  background: var(--bg-dark-secondary);
+  background: var(--bg-placeholder);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -849,7 +1030,7 @@ section {
   justify-content: center;
   padding: 30px;
   text-align: center;
-  background: radial-gradient(circle at center, rgba(6, 182, 212, 0.15) 0%, rgba(11, 17, 30, 0.8) 100%);
+  background: var(--bg-placeholder);
 }
 
 .project-content {
@@ -904,7 +1085,7 @@ section {
 }
 
 .project-contribution-box {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--bg-contribution);
   border-left: 3px solid var(--accent-rose);
   padding: 14px 18px;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
@@ -934,8 +1115,8 @@ section {
 .tech-tag {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  background: var(--bg-chip);
   border: 1px solid var(--border-glass);
   padding: 4px 12px;
   border-radius: var(--radius-full);
@@ -1058,7 +1239,7 @@ section {
 
 .cert-card.award-card {
   border: 1px solid rgba(245, 158, 11, 0.4);
-  background: linear-gradient(135deg, rgba(17, 26, 46, 0.9), rgba(30, 24, 15, 0.8));
+  background: var(--bg-award-card);
 }
 
 .cert-icon {
@@ -1137,7 +1318,7 @@ section {
 .leadership-photo-slot {
   position: relative;
   min-height: 320px;
-  background: var(--bg-dark-secondary);
+  background: var(--bg-placeholder);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1402,12 +1583,26 @@ section {
 
 /* Footer */
 footer {
+  width: 100%;
   border-top: 1px solid var(--border-glass);
-  padding: 30px 0;
+  padding: 32px 0;
   text-align: center;
   font-size: 0.9rem;
   color: var(--text-muted);
-  background: rgba(11, 17, 30, 0.95);
+  background: var(--nav-bg);
+}
+
+footer .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+footer p {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
 }
 
 /* --------------------------------------------------------------------------

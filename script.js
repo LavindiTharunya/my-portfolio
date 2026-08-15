@@ -4,6 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize all interactive modules
+  initThemeToggle();
   initCanvasAnimation();
   initScrollObserver();
   initStatCounters();
@@ -26,8 +27,8 @@ function initCanvasAnimation() {
   let ripples = [];
 
   function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
+    width = canvas.width = document.documentElement.clientWidth;
+    height = canvas.height = document.documentElement.clientHeight;
     createParticles();
   }
 
@@ -56,11 +57,14 @@ function initCanvasAnimation() {
       this.baseX = this.x;
       this.baseY = this.y;
       this.density = (Math.random() * 20) + 1;
-      this.color = Math.random() > 0.4 ? 'rgba(6, 182, 212, 0.4)' : 'rgba(244, 114, 182, 0.3)';
+      this.isSecondary = Math.random() <= 0.4;
     }
 
     draw() {
-      ctx.fillStyle = this.color;
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      const color1 = isLight ? 'rgba(13, 148, 136, 0.35)' : 'rgba(6, 182, 212, 0.4)';
+      const color2 = isLight ? 'rgba(219, 39, 119, 0.3)' : 'rgba(244, 114, 182, 0.3)';
+      ctx.fillStyle = this.isSecondary ? color2 : color1;
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
       ctx.closePath();
@@ -307,4 +311,84 @@ function initFormHandler() {
 
     form.reset();
   });
+}
+
+/* --------------------------------------------------------------------------
+   7. LIGHT / DARK THEME TOGGLE CONTROLLER
+   -------------------------------------------------------------------------- */
+function initThemeToggle() {
+  const themeToggle = document.getElementById('themeToggle');
+  if (!themeToggle) return;
+  const themeIcon = themeToggle.querySelector('.theme-icon');
+
+  // Check saved theme or system preference
+  const savedTheme = localStorage.getItem('theme') || 
+    (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+
+  applyTheme(savedTheme, false);
+
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+    // Trigger icon spin animation
+    themeToggle.classList.add('animating');
+    setTimeout(() => themeToggle.classList.remove('animating'), 500);
+
+    // Exact center of the theme toggle button
+    const rect = themeToggle.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+
+    // Radius needed to cover the furthest screen corner
+    const clientWidth = document.documentElement.clientWidth;
+    const clientHeight = document.documentElement.clientHeight;
+    const endRadius = Math.hypot(
+      Math.max(x, clientWidth - x),
+      Math.max(y, clientHeight - y)
+    );
+
+    // Native View Transitions API for Circular Wave Screen Reveal
+    if (document.startViewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const transition = document.startViewTransition(() => {
+        applyTheme(newTheme, true);
+      });
+
+      transition.ready.then(() => {
+        const clipPath = [
+          `circle(0px at ${x}px ${y}px)`,
+          `circle(${endRadius}px at ${x}px ${y}px)`
+        ];
+
+        document.documentElement.animate(
+          {
+            clipPath: clipPath
+          },
+          {
+            duration: 750,
+            easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+            pseudoElement: '::view-transition-new(root)'
+          }
+        );
+      });
+    } else {
+      // Fallback for browsers without View Transitions
+      applyTheme(newTheme, true);
+    }
+  });
+
+  function applyTheme(theme, showToastMsg = false) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+
+    if (themeIcon) {
+      themeIcon.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+    themeToggle.setAttribute('title', theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode');
+    themeToggle.setAttribute('aria-label', theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode');
+
+    if (showToastMsg && window.showToastNotification) {
+      window.showToastNotification(`Switched to ${theme.toUpperCase()} mode ✨`);
+    }
+  }
 }
