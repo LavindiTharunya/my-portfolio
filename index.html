@@ -742,25 +742,29 @@
             <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 24px;">
               Fill in your details below and your message will be delivered directly to my email inbox.
             </p>
-            <form id="contactForm">
+            <form id="contactForm" action="https://formsubmit.co/mpltharunya22@gmail.com" method="POST">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_next" value="https://lavinditharunya.github.io/my-portfolio/#contact">
+
               <div class="form-group">
                 <label for="formName" class="form-label">Your Name</label>
-                <input type="text" id="formName" class="form-input" placeholder="e.g. Sarah Perera" required>
+                <input type="text" id="formName" name="name" class="form-input" placeholder="e.g. Sarah Perera" required>
               </div>
 
               <div class="form-group">
                 <label for="formEmail" class="form-label">Your Email</label>
-                <input type="email" id="formEmail" class="form-input" placeholder="e.g. sarah@example.com" required>
+                <input type="email" id="formEmail" name="email" class="form-input" placeholder="e.g. sarah@example.com" required>
               </div>
 
               <div class="form-group">
                 <label for="formSubject" class="form-label">Subject</label>
-                <input type="text" id="formSubject" class="form-input" placeholder="e.g. Internship Opportunity / Project Collaboration">
+                <input type="text" id="formSubject" name="_subject" class="form-input" placeholder="e.g. Internship Opportunity / Project Collaboration">
               </div>
 
               <div class="form-group">
                 <label for="formMessage" class="form-label">Message</label>
-                <textarea id="formMessage" class="form-textarea" placeholder="Write your message or inquiry here..." rows="4" required></textarea>
+                <textarea id="formMessage" name="message" class="form-textarea" placeholder="Write your message or inquiry here..." rows="4" required></textarea>
               </div>
 
               <div class="form-actions-group">

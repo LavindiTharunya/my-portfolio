@@ -310,19 +310,30 @@ function initFormHandler() {
   const statusMsg = document.getElementById('formStatusMessage');
 
   form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
     const name = nameInput.value.trim();
     const email = emailInput.value.trim();
     const subject = subjectInput ? subjectInput.value.trim() : '';
     const message = messageInput.value.trim();
 
     if (!name || !email || !message) {
+      e.preventDefault();
       if (window.showToastNotification) {
         window.showToastNotification('⚠️ Please fill in all required fields before sending.');
       }
       return;
     }
+
+    // If running directly from local file:///, allow standard HTML form submission
+    // so FormSubmit can send the activation email and process the form without CORS restriction
+    if (window.location.protocol === 'file:') {
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        if (btnText) btnText.textContent = 'Submitting...';
+      }
+      return; // let standard browser form submit proceed
+    }
+
+    e.preventDefault();
 
     // Set loading state on button
     if (submitBtn) {
@@ -336,22 +347,18 @@ function initFormHandler() {
     }
 
     try {
+      const formData = new FormData(form);
       const response = await fetch('https://formsubmit.co/ajax/mpltharunya22@gmail.com', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          _subject: subject || `Portfolio Inquiry from ${name}`,
-          message: message,
-          _template: 'table'
-        })
+        body: formData
       });
 
-      if (response.ok) {
+      const data = await response.json();
+
+      if (response.ok && (data.success === 'true' || data.success === true)) {
         form.reset();
         if (statusMsg) {
           statusMsg.style.display = 'block';
@@ -362,19 +369,19 @@ function initFormHandler() {
           window.showToastNotification('Message sent successfully!');
         }
       } else {
-        throw new Error('Submission failed');
+        if (data && data.message) {
+          if (statusMsg) {
+            statusMsg.style.display = 'block';
+            statusMsg.className = 'form-status-alert form-status-info';
+            statusMsg.innerHTML = `<strong>Notice:</strong> ${data.message}`;
+          }
+        } else {
+          throw new Error('Submission failed');
+        }
       }
     } catch (err) {
-      // Graceful fallback to mail client if network or adblocker blocks direct AJAX
-      const fallbackSubject = encodeURIComponent(subject || `Portfolio Inquiry from ${name}`);
-      const fallbackBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-      window.location.href = `mailto:mpltharunya22@gmail.com?subject=${fallbackSubject}&body=${fallbackBody}`;
-
-      if (statusMsg) {
-        statusMsg.style.display = 'block';
-        statusMsg.className = 'form-status-alert form-status-info';
-        statusMsg.innerHTML = 'Opening your email client to send your message...';
-      }
+      // Fallback to standard form submission
+      form.submit();
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;
