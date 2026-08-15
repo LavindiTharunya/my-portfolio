@@ -1515,27 +1515,32 @@ section {
   transform: translateY(-3px);
 }
 
-.btn-whatsapp {
-  background: linear-gradient(135deg, #25D366, #128C7E) !important;
-  color: #ffffff !important;
-  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
-  border: none;
-  font-weight: 600;
+.status-badge-inline {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 22px;
+  padding: 6px 14px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
   border-radius: var(--radius-full);
-  cursor: pointer;
-  transition: all 0.25s ease;
-  text-decoration: none;
+  font-size: 0.8rem;
+  color: #34d399;
+  font-family: var(--font-mono);
+  margin-bottom: 20px;
 }
 
-.btn-whatsapp:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
-  background: linear-gradient(135deg, #2ae06c, #16a08f) !important;
-  color: #ffffff !important;
+.status-dot-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
 }
 
 /* Form */
@@ -1580,6 +1585,41 @@ section {
 .form-textarea {
   resize: vertical;
   min-height: 120px;
+}
+
+.btn-submit-message {
+  width: 100%;
+  justify-content: center;
+  font-size: 0.95rem;
+  padding: 14px 24px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.btn-submit-message:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.form-status-alert {
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  margin-top: 18px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  display: none;
+}
+
+.form-status-success {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+}
+
+.form-status-info {
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  color: var(--accent-teal);
 }
 
 /* Toast Feedback */

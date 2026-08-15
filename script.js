@@ -295,7 +295,7 @@ function initCopyActions() {
 }
 
 /* --------------------------------------------------------------------------
-   6. CONTACT FORM MESSAGE SUBMISSION HANDLER
+   6. CONTACT FORM ASYNC MESSAGE SUBMISSION HANDLER
    -------------------------------------------------------------------------- */
 function initFormHandler() {
   const form = document.getElementById('contactForm');
@@ -303,39 +303,84 @@ function initFormHandler() {
 
   const nameInput = document.getElementById('formName');
   const emailInput = document.getElementById('formEmail');
+  const subjectInput = document.getElementById('formSubject');
   const messageInput = document.getElementById('formMessage');
+  const submitBtn = document.getElementById('sendMessageSubmitBtn');
+  const btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+  const statusMsg = document.getElementById('formStatusMessage');
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
     const name = nameInput.value.trim();
     const email = emailInput.value.trim();
+    const subject = subjectInput ? subjectInput.value.trim() : '';
     const message = messageInput.value.trim();
 
     if (!name || !email || !message) {
       if (window.showToastNotification) {
-        window.showToastNotification('⚠️ Please fill in all fields before sending.');
+        window.showToastNotification('⚠️ Please fill in all required fields before sending.');
       }
       return;
     }
 
-    const recipient = 'mpltharunya22@gmail.com';
-    const subject = encodeURIComponent(`Portfolio Message from ${name}`);
-    const body = encodeURIComponent(
-      `Hello Lawindi,\n\nYou have received a new message from your portfolio website:\n\n` +
-      `Name: ${name}\n` +
-      `Email: ${email}\n\n` +
-      `Message:\n${message}\n\n` +
-      `--\nSent via Lawindi Tharunya's Portfolio`
-    );
-
-    const mailtoUrl = `mailto:${recipient}?subject=${subject}&body=${body}`;
-    window.location.href = mailtoUrl;
-
-    if (window.showToastNotification) {
-      window.showToastNotification(`✉️ Opening email client to send message to Lawindi...`);
+    // Set loading state on button
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      if (btnText) btnText.textContent = 'Sending Message...';
     }
 
-    form.reset();
+    if (statusMsg) {
+      statusMsg.style.display = 'none';
+      statusMsg.textContent = '';
+    }
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/mpltharunya22@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          _subject: subject || `Portfolio Inquiry from ${name}`,
+          message: message,
+          _template: 'table'
+        })
+      });
+
+      if (response.ok) {
+        form.reset();
+        if (statusMsg) {
+          statusMsg.style.display = 'block';
+          statusMsg.className = 'form-status-alert form-status-success';
+          statusMsg.innerHTML = '<strong>Message Sent Successfully!</strong> Thank you for reaching out. Your message has been delivered to my inbox and I will respond promptly.';
+        }
+        if (window.showToastNotification) {
+          window.showToastNotification('Message sent successfully!');
+        }
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (err) {
+      // Graceful fallback to mail client if network or adblocker blocks direct AJAX
+      const fallbackSubject = encodeURIComponent(subject || `Portfolio Inquiry from ${name}`);
+      const fallbackBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+      window.location.href = `mailto:mpltharunya22@gmail.com?subject=${fallbackSubject}&body=${fallbackBody}`;
+
+      if (statusMsg) {
+        statusMsg.style.display = 'block';
+        statusMsg.className = 'form-status-alert form-status-info';
+        statusMsg.innerHTML = 'Opening your email client to send your message...';
+      }
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        if (btnText) btnText.textContent = 'Send Message';
+      }
+    }
   });
 }
 
