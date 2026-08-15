@@ -3,6 +3,15 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Reset scroll position to top hero section on page refresh
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  if (window.location.hash) {
+    window.history.replaceState(null, null, window.location.pathname + window.location.search);
+  }
+  window.scrollTo(0, 0);
+
   // Initialize all interactive modules
   initThemeToggle();
   initCanvasAnimation();
@@ -219,31 +228,70 @@ function initNavigation() {
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu = document.querySelector('.nav-links');
 
-  // Sticky Navbar Glass Shadow on Scroll
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
+  // Smooth Click Scroll to Sections
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#' || !targetId) return;
+
+      const targetSection = document.querySelector(targetId);
+      if (targetSection) {
+        e.preventDefault();
+        const navHeight = navbar ? navbar.offsetHeight : 80;
+        const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - navHeight + 10;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+
+        // Close mobile drawer if open
+        if (navMenu && navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  });
+
+  // Smooth ScrollSpy & Navbar Glass Transition
+  let ticking = false;
+  function updateNavOnScroll() {
+    if (window.scrollY > 40) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
 
-    // Active Section ScrollSpy
     let current = '';
+    const scrollPos = window.scrollY + 140;
+
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
+      const sectionTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
-      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
         current = section.getAttribute('id');
       }
     });
 
     navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
+      const href = link.getAttribute('href');
+      if (href === `#${current}`) {
         link.classList.add('active');
+      } else {
+        link.classList.remove('active');
       }
     });
-  });
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateNavOnScroll);
+      ticking = true;
+    }
+  }, { passive: true });
 
   // Mobile Drawer Toggle
   if (navToggle && navMenu) {
@@ -251,13 +299,6 @@ function initNavigation() {
       navMenu.classList.toggle('active');
       const isOpen = navMenu.classList.contains('active');
       navToggle.setAttribute('aria-expanded', isOpen);
-    });
-
-    // Close menu when clicking link
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-      });
     });
   }
 }
