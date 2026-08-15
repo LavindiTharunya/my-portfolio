@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lawindi Tharunya — Personal Portfolio</title>
+  <meta name="description" content="Personal Portfolio of Lawindi Tharunya — Industrial Management Undergraduate & Data Science Enthusiast based in Colombo, Sri Lanka. Showcasing projects, skills, education, and leadership activities.">
+  <meta name="author" content="Lawindi Tharunya">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Interactive Canvas Overlay -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="dot-grid-overlay"></div>
+
+  <!-- Ambient Glow Elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Sticky Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="logo" aria-label="Lawindi Tharunya Home">
+        <span class="logo-dot"></span>
+        Lawindi Tharunya
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#certifications" class="nav-link">Certificates</a></li>
+          <li><a href="#leadership" class="nav-link">Leadership</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="#contact" class="nav-cta">Download CV</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECTION 1: HERO / HOME -->
+    <section id="hero" class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-tag">
+              <span>✦</span> Data Science Enthusiast & Business Analyst
+            </div>
+            
+            <h1 class="hero-headline">
+              Turning Data into <br>
+              <span class="gradient-text">Clear, Impactful Decisions.</span>
+            </h1>
+
+            <p class="hero-intro">
+              I'm a Management &amp; Information Technology undergraduate at the University of Kelaniya with a strong passion for business analysis, data analytics, and supply chain optimization.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">
+                View Projects <span>→</span>
+              </a>
+              <!-- CV Download Link placeholder -->
+              <a href="#contact" class="btn btn-secondary" title="Contact to request full official resume">
+                Download CV <span>↓</span>
+              </a>
+            </div>
+
+            <!-- Stats Strip -->
+            <div class="stats-strip">
+              <div class="stat-item">
+                <div class="stat-number" data-target="3" data-suffix="+">3+</div>
+                <div class="stat-label">Projects</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" data-target="1" data-suffix=" Award">1</div>
+                <div class="stat-label">InCo 2026</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" data-target="5" data-suffix="+">5+</div>
+                <div class="stat-label">Certificates</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" data-target="3" data-suffix="">3</div>
+                <div class="stat-label">Languages</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Circular Photo Slot -->
+          <div class="hero-photo-wrapper">
+            <div class="photo-frame">
+              <div class="photo-inner">
+                <!-- =========================================================================
+                     IMAGE SLOT 1: HERO PROFILE PHOTO
+                     To swap in your real profile photo, replace the <img> tag below:
+                     <img src="assets/images/your-profile-photo.jpg" alt="Lawindi Tharunya Profile Photo" class="hero-photo-img">
+                     ========================================================================= -->
+                <!-- Replace with: <img src="assets/images/your-profile-photo.jpg" alt="Lawindi Tharunya"> -->
+                <img src="assets/images/hero_profile_photo.jpg" alt="Lawindi Tharunya Profile Photo" class="hero-photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                
+                <div class="photo-fallback" style="display: none;">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  <p style="margin-top: 10px; font-size: 0.8rem;">Lawindi Tharunya</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="photo-badge">
+              <span>💧</span> Hydration &amp; Data
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT ME -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// Background &amp; Aspirations</span>
+          <h2 class="section-title">Bridging Tech Fluency with <span class="accent-rose">Real Business Impact</span></h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-text">
+              <p>
+                I am currently reading for a <strong>BSc (Hons) in Management &amp; Information Technology</strong> at the <strong>University of Kelaniya</strong>. Prior to my degree studies, I completed a Diploma in English at ICBT Campus, which strengthened my professional communication and analytical thinking capabilities.
+              </p>
+              
+              <div class="about-highlight-box">
+                <div class="about-highlight-title">Career Goal</div>
+                <div class="about-highlight-desc">
+                  To grow into a data-driven Business Analyst role that combines rigorous data fluency with a deep understanding of organizational processes and market strategy.
+                </div>
+              </div>
+
+              <p>
+                Currently, I am expanding my data engineering and analytical capabilities through the <strong>Python Essentials for Data Science</strong> program by Cisco Networking Academy.
+              </p>
+            </div>
+
+            <h3 class="interest-tags-title">Primary Focus Areas</h3>
+            <div class="interest-tags">
+              <span class="tag-pill">Business Analysis</span>
+              <span class="tag-pill">Data Science</span>
+              <span class="tag-pill">Supply Chain Management</span>
+              <span class="tag-pill">Process Improvement</span>
+              <span class="tag-pill">Product Thinking</span>
+            </div>
+          </div>
+
+          <div class="about-side-card">
+            <div class="side-card-item">
+              <div class="side-card-label">Degree Program</div>
+              <div class="side-card-value">BSc (Hons) in Management &amp; IT</div>
+            </div>
+
+            <div class="side-card-item">
+              <div class="side-card-label">University</div>
+              <div class="side-card-value">University of Kelaniya, Sri Lanka</div>
+            </div>
+
+            <div class="side-card-item">
+              <div class="side-card-label">Location</div>
+              <div class="side-card-value">Colombo, Sri Lanka</div>
+            </div>
+
+            <div class="side-card-item">
+              <div class="side-card-label">Current Focus</div>
+              <div class="side-card-value">Python for Data Science &amp; Business Process Design</div>
+            </div>
+
+            <div class="side-card-item">
+              <div class="side-card-label">Contact Email</div>
+              <div class="side-card-value" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-teal);">
+                mpltharunya22@gmail.com
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SKILLS -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// Core Competencies</span>
+          <h2 class="section-title">Technical &amp; <span class="accent-teal">Domain Expertise</span></h2>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Programming -->
+          <div class="skill-card">
+            <div class="skill-card-icon">⚡</div>
+            <h3 class="skill-card-title">Programming</h3>
+            <div class="skill-tags-list">
+              <span class="skill-chip">Java</span>
+              <span class="skill-chip">C++</span>
+              <span class="skill-chip">Python (Learning)</span>
+            </div>
+          </div>
+
+          <!-- Data Science -->
+          <div class="skill-card pink-icon">
+            <div class="skill-card-icon">📊</div>
+            <h3 class="skill-card-title">Data Science (Growing)</h3>
+            <div class="skill-tags-list">
+              <span class="skill-chip">Data Analysis Basics</span>
+              <span class="skill-chip">Python for Data Science</span>
+              <span class="skill-chip">Data Fundamentals</span>
+            </div>
+          </div>
+
+          <!-- Web Development -->
+          <div class="skill-card">
+            <div class="skill-card-icon">🌐</div>
+            <h3 class="skill-card-title">Web Development</h3>
+            <div class="skill-tags-list">
+              <span class="skill-chip">HTML5</span>
+              <span class="skill-chip">CSS3</span>
+              <span class="skill-chip">JavaScript (Vanilla)</span>
+            </div>
+          </div>
+
+          <!-- Business & Process -->
+          <div class="skill-card amber-icon">
+            <div class="skill-card-icon">🎯</div>
+            <h3 class="skill-card-title">Business &amp; Process</h3>
+            <div class="skill-tags-list">
+              <span class="skill-chip">Requirement Analysis</span>
+              <span class="skill-chip">Process Improvement</span>
+              <span class="skill-chip">Database Fundamentals</span>
+            </div>
+          </div>
+
+          <!-- Soft Skills -->
+          <div class="skill-card pink-icon">
+            <div class="skill-card-icon">💡</div>
+            <h3 class="skill-card-title">Soft Skills</h3>
+            <div class="skill-tags-list">
+              <span class="skill-chip">Teamwork &amp; Collaboration</span>
+              <span class="skill-chip">Time Management &amp; Discipline</span>
+              <span class="skill-chip">Critical Thinking</span>
+              <span class="skill-chip">Willingness to Learn</span>
+            </div>
+          </div>
+
+          <!-- Languages -->
+          <div class="skill-card">
+            <div class="skill-card-icon">🗣️</div>
+            <h3 class="skill-card-title">Languages</h3>
+            <div class="language-list">
+              <div class="lang-item">
+                <div class="lang-info">
+                  <span class="lang-name">English</span>
+                  <span class="lang-level">Professional</span>
+                </div>
+                <div class="lang-bar"><div class="lang-fill" style="width: 90%;"></div></div>
+              </div>
+              <div class="lang-item">
+                <div class="lang-info">
+                  <span class="lang-name">Sinhala</span>
+                  <span class="lang-level">Native</span>
+                </div>
+                <div class="lang-bar"><div class="lang-fill" style="width: 100%;"></div></div>
+              </div>
+              <div class="lang-item">
+                <div class="lang-info">
+                  <span class="lang-name">Tamil</span>
+                  <span class="lang-level">Moderate</span>
+                </div>
+                <div class="lang-bar"><div class="lang-fill" style="width: 60%;"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: PROJECTS -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// Portfolio Portfolio Showcase</span>
+          <h2 class="section-title">Featured <span class="accent-teal">Projects &amp; Innovation</span></h2>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: Hydro Habit (Flagship Project) -->
+          <article class="project-card featured">
+            <div class="project-image-slot">
+              <!-- =========================================================================
+                   IMAGE SLOT 2: HYDRO HABIT PROJECT PHOTO
+                   To swap in your real project screenshot/photo, replace below:
+                   <img src="assets/images/hydro-habit-real.jpg" alt="Hydro Habit Smart Hydration" class="project-img">
+                   ========================================================================= -->
+              <!-- Replace with: <img src="assets/images/hydro-habit-real.jpg" alt="Hydro Habit"> -->
+              <div class="project-img-placeholder">
+                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-teal)" stroke-width="1.5">
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                </svg>
+                <h4 style="margin-top: 12px; font-family: var(--font-serif); color: var(--text-primary);">Hydro Habit Visual</h4>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Smart Hydration Product Concept</p>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div>
+                <div class="project-badge-strip">
+                  <span class="award-badge">🏆 2nd Runner-up (Marketing)</span>
+                  <span class="project-category">InCo 2026</span>
+                </div>
+                <h3 class="project-title">Hydro Habit — Smart Hydration for Family Care</h3>
+                <p class="project-desc">
+                  A smart hydration product concept designed to help families track, monitor, and encourage healthy water intake habits in real time. Pitched and recognized at InCo 2026.
+                </p>
+
+                <div class="project-contribution-box">
+                  <div class="contribution-label">Individual Contribution</div>
+                  <div class="contribution-text">
+                    Led overall <strong>concept development</strong> and engineered the strategic <strong>go-to-market pitch strategy</strong> for the product competition.
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-tech-stack">
+                <span class="tech-tag">Smart IoT Concept</span>
+                <span class="tech-tag">Go-To-Market Strategy</span>
+                <span class="tech-tag">User Research</span>
+                <span class="tech-tag">Product Pitching</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: PharmaLink -->
+          <article class="project-card">
+            <div class="project-image-slot">
+              <!-- =========================================================================
+                   IMAGE SLOT 3: PHARMALINK PROJECT PHOTO
+                   To swap in your real project screenshot/photo, replace below:
+                   <img src="assets/images/pharmalink-real.jpg" alt="PharmaLink Prescription System" class="project-img">
+                   ========================================================================= -->
+              <!-- Replace with: <img src="assets/images/pharmalink-real.jpg" alt="PharmaLink"> -->
+              <div class="project-img-placeholder">
+                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-rose)" stroke-width="1.5">
+                  <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                  <path d="M9 12h6M12 9v6"></path>
+                </svg>
+                <h4 style="margin-top: 12px; font-family: var(--font-serif); color: var(--text-primary);">PharmaLink Dashboard</h4>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Prescription Management System</p>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div>
+                <div class="project-badge-strip">
+                  <span class="project-category">Java Application</span>
+                </div>
+                <h3 class="project-title">PharmaLink — Prescription Management System</h3>
+                <p class="project-desc">
+                  A comprehensive prescription management desktop application tailored for pharmacies to streamline inventory tracking, patient prescriptions, and order verification.
+                </p>
+
+                <div class="project-contribution-box">
+                  <div class="contribution-label">Individual Contribution</div>
+                  <div class="contribution-text">
+                    Executed <strong>requirement analysis</strong>, designed core <strong>backend architecture in Java</strong>, and handled <strong>JavaDB database integration</strong>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-tech-stack">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">JavaDB</span>
+                <span class="tech-tag">Requirement Engineering</span>
+                <span class="tech-tag">SQL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Connect 4 Game -->
+          <article class="project-card">
+            <div class="project-image-slot">
+              <!-- =========================================================================
+                   IMAGE SLOT 4: CONNECT 4 PROJECT PHOTO
+                   To swap in your real project screenshot/photo, replace below:
+                   <img src="assets/images/connect4-real.jpg" alt="Connect 4 Game Interface" class="project-img">
+                   ========================================================================= -->
+              <!-- Replace with: <img src="assets/images/connect4-real.jpg" alt="Connect 4 UI"> -->
+              <div class="project-img-placeholder">
+                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="1.5">
+                  <circle cx="7" cy="7" r="3"></circle>
+                  <circle cx="17" cy="7" r="3"></circle>
+                  <circle cx="7" cy="17" r="3"></circle>
+                  <circle cx="17" cy="17" r="3"></circle>
+                </svg>
+                <h4 style="margin-top: 12px; font-family: var(--font-serif); color: var(--text-primary);">Connect 4 Interface</h4>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">C++ Game Application</p>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div>
+                <div class="project-badge-strip">
+                  <span class="project-category">C++ Development</span>
+                </div>
+                <h3 class="project-title">Connect 4 with User Interface</h3>
+                <p class="project-desc">
+                  An interactive Connect 4 game application built using C++ in Dev C++, featuring a customized player-naming dashboard, turn state machine, and win-condition checking.
+                </p>
+
+                <div class="project-contribution-box">
+                  <div class="contribution-label">Individual Contribution</div>
+                  <div class="contribution-text">
+                    Developed core <strong>game logic algorithms</strong>, designed <strong>UI handling flow</strong>, and built the interactive <strong>player dashboard</strong>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-tech-stack">
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">Dev C++</span>
+                <span class="tech-tag">Game Logic</span>
+                <span class="tech-tag">UI Dashboard</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: EDUCATION & EXPERIENCE -->
+    <section id="education" class="education">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// Journey &amp; Milestones</span>
+          <h2 class="section-title">Education &amp; <span class="accent-rose">Professional Experience</span></h2>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Item 1: Degree -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-date">2023 — Present (Reading)</div>
+              <h3 class="timeline-title">BSc (Hons) in Management &amp; Information Technology</h3>
+              <div class="timeline-subtitle">University of Kelaniya, Sri Lanka</div>
+              <p class="timeline-desc">
+                Specializing in the intersection of business management, software systems, operational research, and data analytics.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2: BOC Trainee -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-date">March 12, 2024 — January 16, 2025</div>
+              <h3 class="timeline-title">Trainee (Certified)</h3>
+              <div class="timeline-subtitle">Bank of Ceylon (BOC)</div>
+              <p class="timeline-desc">
+                Gained operational banking experience, customer service workflow management, financial record verification, and banking software process understanding.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3: Diploma in English -->
+          <div class="timeline-item">
+            <div class="timeline-node"></div>
+            <div class="timeline-card">
+              <div class="timeline-date">2023</div>
+              <h3 class="timeline-title">Diploma in English</h3>
+              <div class="timeline-subtitle">ICBT Campus, Sri Lanka</div>
+              <p class="timeline-desc">
+                Comprehensive diploma covering professional communication, academic writing, presentation skills, and business correspondence.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: CERTIFICATIONS & ACHIEVEMENTS -->
+    <section id="certifications" class="certifications">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// Qualifications</span>
+          <h2 class="section-title">Certifications &amp; <span class="accent-amber">Achievements</span></h2>
+        </div>
+
+        <div class="cert-grid">
+          <!-- Award Card -->
+          <div class="cert-card award-card">
+            <div class="cert-icon">🏆</div>
+            <div class="cert-info">
+              <h4>2nd Runner-up, Marketing Category</h4>
+              <div class="cert-issuer">InCo 2026 Competition</div>
+              <span class="cert-status status-awarded">Awarded</span>
+            </div>
+          </div>
+
+          <!-- Cert 1 -->
+          <div class="cert-card">
+            <div class="cert-icon">🐍</div>
+            <div class="cert-info">
+              <h4>Python Essentials for Data Science</h4>
+              <div class="cert-issuer">Cisco Networking Academy</div>
+              <span class="cert-status status-in-progress">In Progress</span>
+            </div>
+          </div>
+
+          <!-- Cert 2 -->
+          <div class="cert-card">
+            <div class="cert-icon">📊</div>
+            <div class="cert-info">
+              <h4>Introduction to Data Science</h4>
+              <div class="cert-issuer">Cisco Networking Academy</div>
+              <span class="cert-status status-completed">Completed</span>
+            </div>
+          </div>
+
+          <!-- Cert 3 -->
+          <div class="cert-card">
+            <div class="cert-icon">💻</div>
+            <div class="cert-info">
+              <h4>Introduction to Programming</h4>
+              <div class="cert-issuer">Kaggle</div>
+              <span class="cert-status status-completed">Completed</span>
+            </div>
+          </div>
+
+          <!-- Cert 4 -->
+          <div class="cert-card">
+            <div class="cert-icon">☁️</div>
+            <div class="cert-info">
+              <h4>Data Fundamentals</h4>
+              <div class="cert-issuer">IBM</div>
+              <span class="cert-status status-completed">Certified</span>
+            </div>
+          </div>
+
+          <!-- Cert 5 -->
+          <div class="cert-card">
+            <div class="cert-icon">💼</div>
+            <div class="cert-info">
+              <h4>Workplace Skills Certificate</h4>
+              <div class="cert-issuer">MAS Holdings x University of Kelaniya</div>
+              <span class="cert-status status-completed">Completed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: LEADERSHIP & EXTRACURRICULAR ACTIVITIES -->
+    <section id="leadership" class="leadership">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// Initiative &amp; Impact</span>
+          <h2 class="section-title">Leadership &amp; <span class="accent-rose">Extracurriculars</span></h2>
+        </div>
+
+        <!-- Featured Leadership Spotlight Card (HackX Jr. 9.0) -->
+        <div class="leadership-featured">
+          <div class="leadership-photo-slot">
+            <!-- =========================================================================
+                 IMAGE SLOT 5: HACKX JR. 9.0 LEADERSHIP PHOTO
+                 To swap in your real event/leadership photo, replace below:
+                 <img src="assets/images/hackx-leadership-real.jpg" alt="Chief Coordinator HackX Jr 9.0" class="leadership-img">
+                 ========================================================================= -->
+            <!-- Replace with: <img src="assets/images/hackx-leadership-real.jpg" alt="HackX Jr 9.0 Chief Coordinator"> -->
+            <div class="project-img-placeholder">
+              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--accent-rose)" stroke-width="1.5">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <h4 style="margin-top: 14px; font-family: var(--font-serif); color: var(--text-primary);">HackX Jr. 9.0 Leadership Photo</h4>
+              <p style="font-size: 0.8rem; color: var(--text-muted);">Chief Coordinator Role</p>
+            </div>
+          </div>
+
+          <div class="leadership-content">
+            <div class="leadership-tag">★ Featured Leadership Role</div>
+            <h3 class="leadership-title">Chief Coordinator — HackX Jr. 9.0 (2026)</h3>
+            <p class="leadership-desc">
+              Leading the central organizational committee for <strong>HackX Jr. 9.0</strong>, a premier island-wide inter-school hackathon. Overseeing overall event planning, venue logistics, sponsorship outreach, and coordinating cross-functional student execution teams to empower young tech innovators.
+            </p>
+          </div>
+        </div>
+
+        <!-- Additional Extracurricular Grid -->
+        <div class="extra-grid">
+          <div class="extra-card">
+            <div class="extra-icon">🌐</div>
+            <div class="extra-info">
+              <h4>Member — AIESEC</h4>
+              <p>University of Kelaniya Chapter</p>
+            </div>
+          </div>
+
+          <div class="extra-card">
+            <div class="extra-icon">⚙️</div>
+            <div class="extra-info">
+              <h4>Volunteer — IEEE Society</h4>
+              <p>Student Branch Initiatives</p>
+            </div>
+          </div>
+
+          <div class="extra-card">
+            <div class="extra-icon">📊</div>
+            <div class="extra-info">
+              <h4>Member — IMSSA</h4>
+              <p>Industrial Management Science Students' Association</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: CONTACT & FOOTER -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// Get In Touch</span>
+          <h2 class="section-title">Let's Connect &amp; <span class="accent-teal">Collaborate</span></h2>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Info Card -->
+          <div class="contact-info-card">
+            <h3>Reach Out</h3>
+            <p>
+              Whether you're interested in discussing business analytics, data science projects, or internship opportunities, feel free to drop a message or connect directly!
+            </p>
+
+            <div class="contact-details-list">
+              <div class="contact-item" data-copy="mpltharunya22@gmail.com" title="Click to copy email">
+                <div class="contact-icon">✉️</div>
+                <div>
+                  <div class="contact-text-label">Email Address</div>
+                  <div class="contact-text-value">mpltharunya22@gmail.com</div>
+                </div>
+              </div>
+
+              <div class="contact-item" data-copy="+94715435636" title="Click to copy phone number">
+                <div class="contact-icon">📞</div>
+                <div>
+                  <div class="contact-text-label">Phone Number</div>
+                  <div class="contact-text-value">+94 71 543 5636</div>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>
+                  <div class="contact-text-label">Location</div>
+                  <div class="contact-text-value">Colombo, Sri Lanka</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links with Placeholders -->
+            <div class="social-links">
+              <!-- =========================================================================
+                   LINKEDIN PROFILE URL PLACEHOLDER
+                   Replace href="#" with your real LinkedIn profile URL e.g.:
+                   href="https://linkedin.com/in/yourprofile"
+                   ========================================================================= -->
+              <!-- Replace # with your real LinkedIn URL e.g., https://linkedin.com/in/yourprofile -->
+              <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" title="LinkedIn Profile (Replace # with real URL)">
+                in
+              </a>
+
+              <!-- =========================================================================
+                   GITHUB PROFILE URL PLACEHOLDER
+                   Replace href="#" with your real GitHub profile URL e.g.:
+                   href="https://github.com/yourusername"
+                   ========================================================================= -->
+              <!-- Replace # with your real GitHub URL e.g., https://github.com/yourusername -->
+              <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" title="GitHub Profile (Replace # with real URL)">
+                gh
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact Form Simulation -->
+          <div class="contact-form-card">
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="formName" class="form-label">Your Name</label>
+                <input type="text" id="formName" class="form-input" placeholder="e.g. Sarah Perera" required>
+              </div>
+
+              <div class="form-group">
+                <label for="formEmail" class="form-label">Your Email</label>
+                <input type="email" id="formEmail" class="form-input" placeholder="e.g. sarah@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="formMessage" class="form-label">Message</label>
+                <textarea id="formMessage" class="form-textarea" placeholder="Write your message here..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Send Message <span>✉️</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Toast Notification Feedback -->
+  <div id="toast" class="toast">
+    <span>✨</span>
+    <span class="toast-msg">Copied to clipboard!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Lawindi Tharunya. Crafted for University Portfolio Assignment.</p>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
