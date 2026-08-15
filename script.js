@@ -295,7 +295,7 @@ function initCopyActions() {
 }
 
 /* --------------------------------------------------------------------------
-   6. CONTACT FORM DEMO SUBMISSION HANDLER
+   6. CONTACT FORM DIRECT MESSAGE SUBMISSION HANDLER
    -------------------------------------------------------------------------- */
 function initFormHandler() {
   const form = document.getElementById('contactForm');
@@ -304,66 +304,39 @@ function initFormHandler() {
   const nameInput = document.getElementById('formName');
   const emailInput = document.getElementById('formEmail');
   const messageInput = document.getElementById('formMessage');
-  const whatsappBtn = document.getElementById('sendWhatsAppBtn');
 
-  // Direct Submission via Email Client (mailto)
+  // Direct Submission via WhatsApp Instant Message (Accessible & Fast)
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = nameInput.value.trim();
-    const email = emailInput.value.trim();
+    const contact = emailInput.value.trim();
     const message = messageInput.value.trim();
 
-    if (!name || !email || !message) {
+    if (!name || !contact || !message) {
       if (window.showToastNotification) {
-        window.showToastNotification('⚠️ Please fill in all fields before sending.');
+        window.showToastNotification('⚠️ Please fill in your name, contact, and message.');
       }
       return;
     }
 
-    const recipient = 'mpltharunya22@gmail.com';
-    const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
-    const body = encodeURIComponent(
-      `Hello Lawindi,\n\nYou have received a new message from your portfolio website:\n\n` +
-      `Name: ${name}\n` +
-      `Email: ${email}\n\n` +
-      `Message:\n${message}\n\n` +
-      `--\nSent from Lawindi Tharunya's Portfolio Contact Form`
-    );
+    const phone = '94715435636';
+    const text = `👋 Hello Lawindi,\n\nYou have a new inquiry from your portfolio website:\n\n` +
+      `👤 Name: ${name}\n` +
+      `📞 Contact Info: ${contact}\n\n` +
+      `💬 Message:\n${message}\n\n` +
+      `--\nSent via Lawindi Tharunya's Portfolio`;
 
-    const mailtoUrl = `mailto:${recipient}?subject=${subject}&body=${body}`;
-    window.location.href = mailtoUrl;
+    const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
 
     if (window.showToastNotification) {
-      window.showToastNotification(`✉️ Opening email client to send message to Lawindi!`);
+      window.showToastNotification(`💬 Opening WhatsApp to send your message to Lawindi...`);
     }
+
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+    // Reset form after sending
+    form.reset();
   });
-
-  // Direct Submission via WhatsApp Chat
-  if (whatsappBtn) {
-    whatsappBtn.addEventListener('click', () => {
-      const name = nameInput.value.trim();
-      const email = emailInput.value.trim();
-      const message = messageInput.value.trim();
-
-      const phone = '94715435636';
-      let text = `Hi Lawindi,`;
-      if (name) text += ` I'm ${name}`;
-      if (email) text += ` (${email})`;
-      text += `.\n\n`;
-      if (message) {
-        text += `Message: ${message}`;
-      } else {
-        text += `I visited your portfolio and would like to connect!`;
-      }
-
-      const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-
-      if (window.showToastNotification) {
-        window.showToastNotification(`💬 Opening WhatsApp chat with Lawindi...`);
-      }
-    });
-  }
 }
 
 /* --------------------------------------------------------------------------
@@ -459,7 +432,7 @@ function initCvModal() {
 
   const atsPlainText = `LAWINDI THARUNYA
 Data Science & Analytics | Machine Learning & Statistical Modeling
-Colombo, Sri Lanka | WhatsApp: Direct Message | Email: mpltharunya22@gmail.com
+Colombo, Sri Lanka | Phone / WhatsApp: +94 71 543 5636
 LinkedIn: linkedin.com/in/lawindi-tharunya | GitHub: github.com/LavindiTharunya
 
 ============================================================
